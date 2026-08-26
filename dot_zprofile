@@ -1,0 +1,7 @@
+# Add .NET Core SDK tools
+export PATH="$PATH:/Users/rob/.dotnet/tools"
+
+# Added by Spectra
+if [[ -z ${path[(r)$HOME/.local/bin]} ]]; then
+  path=("$HOME/.local/bin" $path)
+fi

@@ -1,0 +1,32 @@
+# Homebrew
+[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export EDITOR="zed"
+export VISUAL="$EDITOR"
+
+ZSH_CONFIG="$HOME/.config/zsh"
+
+source "$ZSH_CONFIG/options.zsh"
+source "$ZSH_CONFIG/aliases.zsh"
+source "$ZSH_CONFIG/functions.zsh"
+source "$ZSH_CONFIG/fzf.zsh"
+source "$ZSH_CONFIG/television.zsh"
+
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="/Users/rob/.cargo/bin:$PATH"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select
+
+# Added by Spectra
+if [[ -z ${path[(r)$HOME/.local/bin]} ]]; then
+  path=("$HOME/.local/bin" $path)
+fi
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Prompt owns the final hooks.
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
