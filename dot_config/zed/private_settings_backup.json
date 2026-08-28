@@ -1,0 +1,86 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "project_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "agent": {
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "edit_predictions": {
+    "provider": "zed"
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
+  "autosave": "on_focus_change",
+  "base_keymap": "VSCode",
+  // UI Font. Use ".SystemUIFont" to use the default system font (SF Pro on macOS)
+  "ui_font_family": ".SystemUIFont", // "Zed Plex Sans",
+  "ui_font_size": 15.0,
+
+  // Buffer Font - Used by editor buffers
+  "buffer_font_family": "JetBrains Mono", // "Zed Plex Mono",  // Font name for editor buffers
+  "buffer_font_size": 15.0, // Font size for editor buffers
+  "buffer_font_weight": 300.0, // Font weight in CSS units [100-900]
+  // Line height "comfortable" (1.618), "standard" (1.3) or custom: `{ "custom": 2 }`
+  "buffer_line_height": "comfortable",
+
+  // Terminal Font Settings
+  "terminal": {
+    "dock": "right",
+    "font_family": "MesloLGSDZ Nerd Font", //"MesloLGS Nerd Font", // "Zed Plex Mono",
+    "font_size": 13,
+    // Terminal line height: comfortable (1.618), standard(1.3) or `{ "custom": 2 }`
+    "line_height": "comfortable",
+  },
+
+  // Agent Panel Font Settings
+  "agent_ui_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    //"light": "One Light",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    //"dark": "Zed (Default)"
+    "dark": "JetBrains Icons Dark",
+  },
+
+  "line_indicator_format": "long",
+
+  // Control which items are shown/hidden in the title bar
+  "title_bar": {
+    "show_branch_icon": true, // Show/hide branch icon beside branch switcher
+    "show_branch_name": true, // Show/hide branch name
+    "show_project_items": true, // Show/hide project host and name
+    "show_onboarding_banner": true, // Show/hide onboarding banners
+    "show_user_picture": true, // Show/hide user avatar
+    "show_sign_in": true, // Show/hide sign-in button
+  },
+}

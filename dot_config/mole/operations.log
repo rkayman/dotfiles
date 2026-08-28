@@ -1,0 +1,1061 @@
+
+# ========== optimize session started at 2026-02-15 08:44:36 ==========
+[2026-02-15 08:44:43] [optimize] REMOVED /Users/rob/Library/Application Support/Dock/desktoppicture.db (52KB)
+# ========== optimize session ended at 2026-02-15 08:44:58, 14 items, 0B ==========
+
+# ========== clean session started at 2026-02-15 08:45:18 ==========
+[2026-02-15 08:45:18] [clean] REMOVED /private/var/log/nix-daemon.log
+[2026-02-15 08:45:19] [clean] REMOVED /private/var/folders/zx/sdl69vjd6fg6g5jhffrdfz240000gn/X/com.jetbrains.rider.code_sign_clone
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/diagnostics/logd.1.log (1.0MB)
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/diagnostics/diagnosticd.0.log (12KB)
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/diagnostics/timesync/0000000000000030.timesync (36KB)
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/diagnostics/timesync/0000000000000031.timesync (32KB)
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/diagnostics/timesync/000000000000002c.timesync (24KB)
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/diagnostics/timesync/000000000000002e.timesync (4KB)
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/diagnostics/timesync/000000000000002d.timesync (8KB)
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/diagnostics/timesync/0000000000000032.timesync (20KB)
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/diagnostics/timesync/000000000000002f.timesync (12KB)
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/DiagnosticPipeline/DRSTaskingDataModel.sqlite (40KB)
+[2026-02-15 08:45:24] [clean] REMOVED /private/var/db/DiagnosticPipeline/DRSCKConfigModel.sqlite (24KB)
+[2026-02-15 08:45:25] [clean] REMOVED /private/var/db/DiagnosticPipeline/DRSTaskingDataModel.sqlite-wal (196KB)
+[2026-02-15 08:45:25] [clean] REMOVED /private/var/db/DiagnosticPipeline/DRSDataModel.sqlite (112KB)
+[2026-02-15 08:45:25] [clean] REMOVED /private/var/db/powerlog/Library/PerfPowerTelemetry/ExtendedPersistence/CurrentLog.EPSQL (1.1MB)
+[2026-02-15 08:45:25] [clean] REMOVED /private/var/db/powerlog/Library/PerfPowerTelemetry/XcodeOrganizer/CurrentXcodeOrganizerDB.XCSQL (4KB)
+[2026-02-15 08:45:28] [clean] SKIPPED /Users/rob/Library/Caches/CloudKit (whitelist)
+[2026-02-15 08:45:28] [clean] SKIPPED /Users/rob/Library/Caches/JetBrains (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.anthropic.claudefordesktop (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.anthropic.claudefordesktop.ShipIt (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.AMPDevicesAgent (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.AMPLibraryAgent (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.AppleMediaServices (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.AssistantServices (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.AuthenticationServicesCore.AuthenticationServicesAgent (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.AvatarKit (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.CloudTelemetry (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.CommerceKit.TransactionService (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.DictionaryServices (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.Family-Settings.extension (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.FeatureAccessAgent (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.FileProviderDaemon.AppStoreService (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.HomeKit (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.MediaPlayer.RemotePlayerService (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.Music (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.NewDeviceOutreach (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.Safari (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.SetupAssistant (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.Siri-Settings.extension (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.Software-Update-Settings.extension (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.SoftwareUpdateNotificationManager (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.Spotlight (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.TV (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.VideoConference (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.WalletSettingsExtension (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.WritingTools.xpc.WritingToolsViewService (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.accountsd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.akd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.amsaccountsd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.amsengagementd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.amsondevicestoraged (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.ap.PromotedContentJetService (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.ap.adprivacyd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.appleaccountd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.appstore (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.appstoreagent (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.appstorecomponentsd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.assistant_cdmd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.assistant_service (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.assistantd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.automator.actionCache-bundleLocations.plist (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.automator.actionCache-system-standardLocations.plist (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.betaenrollmentagent (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.betaenrollmentd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.bird (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.bookassetd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.bookdatastored (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.businessservicesd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.cache_delete (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.callintelligenced (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.chrono (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.cloudd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.commerce (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.configurator.ui (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.containermanagerd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.controlcenter (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.controlcenter.helper (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.coreservices.uiagent (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.ctcategories.service (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.dataaccess.dataaccessd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.donotdisturbd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.dt.Xcode (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.dt.Xcode.sourcecontrol.Git (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.dt.xcodebuild (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.duetexpertd (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.e5rt.e5bundlecache (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.feedbacklogger (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.finder (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.findmy.findmylocateagent (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.findmy.fmfcore (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.findmy.fmipcore (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.findmy.imagecache (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.gamed (protected)
+[2026-02-15 08:45:29] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.geoanalyticsd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.helpd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.homed (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.homeenergyd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.iCloudNotificationAgent (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.iTunes (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.iTunesCloud (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.iWork.Numbers (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.ibtool (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.installer.osinstallersetupd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.itunescloudd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.managedappdistributionagent (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.maps.destinationd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.mlruntimed (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.nbagent (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.newsd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.nsservicescache.plist (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.nsurlsessiond (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.parsecd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.passd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.preferencepanes.usercache (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.proactive.eventtracker (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.python (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.remindd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.-2417890708855011662.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.-4733748633353167552.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.-4983781140330059684.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.-6780277465686202818.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.-7779189576589942603.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.-7973437587638739630.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.14153899609806.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.215426932792739358.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.230770346109012413.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.24049398415.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.26919328759.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.2812606788724991378.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.2844661561058500568.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.2894038297468774578.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.3427910662493396681.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.3465968951862004152.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.3987059877150253887.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.4024808128781873001.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.663103074326612662.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sharekit.895546419455149065.png (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.shazamd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.siri.SuggestionsBookkeepingService (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.siri.bundleservicecache.plist (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.siri.conversationhandlercache.plist (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.siri.embeddedspeech (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.siri.findmy.syncdevicedata.json (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.siri.transformationplugincache.plist (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.siriknowledged (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.sirittsd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.storekitagent (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.swtransparencyd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.systemsettings.menucache (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.textunderstandingd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.tipsd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.tiswitcher.cache (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.translationd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.transparencyd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.watchlistd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.weatherd (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.axosoft.gitkraken (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.cloudflare.1dot1dot1dot1.macos (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.colliderli.iina (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.figma.Desktop (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.figma.Desktop.ShipIt (protected)
+[2026-02-15 08:45:30] [clean] SKIPPED /Users/rob/Library/Caches/com.figma.agent (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.hnc.Discord (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.luckymarmot.Paw (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.microsoft.VSCode (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.microsoft.VSCode.ShipIt (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.microsoft.autoupdate.fba (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.openai.chat (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.raycast.macos (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.sublimetext.4 (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.surteesstudios.Bartender (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.todesktop.230313mzl4w4u92 (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/com.todesktop.230313mzl4w4u92.ShipIt (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/dev.warp.Warp-Stable (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/net.whatsapp.WhatsApp (protected)
+[2026-02-15 08:45:31] [clean] SKIPPED /Users/rob/Library/Caches/us.zoom.xos (protected)
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/Dia (967.5MB)
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/JNA
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/Zed
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/fig
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/ssu
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/deno (100KB)
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/bagel (24KB)
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/fresh (1.5MB)
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/Animoji (1.2MB)
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/GameKit (48KB)
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/PassKit (2.2MB)
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/SiriTTS (261.3MB)
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/TeXShop
+[2026-02-15 08:45:38] [clean] REMOVED /Users/rob/Library/Caches/segment
+[2026-02-15 08:45:39] [clean] REMOVED /Users/rob/Library/Caches/Homebrew (6.05GB)
+[2026-02-15 08:45:39] [clean] REMOVED /Users/rob/Library/Caches/Marked 2
+[2026-02-15 08:45:39] [clean] REMOVED /Users/rob/Library/Caches/EnergyKit
+[2026-02-15 08:45:39] [clean] REMOVED /Users/rob/Library/Caches/TrickPlay
+[2026-02-15 08:45:39] [clean] REMOVED /Users/rob/Library/Caches/io.sentry (12KB)
+[2026-02-15 08:45:39] [clean] REMOVED /Users/rob/Library/Caches/com.emdash (80KB)
+[2026-02-15 08:45:39] [clean] REMOVED /Users/rob/Library/Caches/ARFileCache
+[2026-02-15 08:45:39] [clean] REMOVED /Users/rob/Library/Caches/GeoServices (86.9MB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/SentryCrash (28KB)
+[2026-02-15 08:45:40] [clean] FAILED /Users/rob/Library/Caches/FamilyCircle (permission denied)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/INSTALLATION (4KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/JetPackCache (172KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/ChatGPTHelper
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/LSMImageCache
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.datadoghq
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/familycircled (1.0MB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/askpermissiond (244KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/emdash-updater (368.7MB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/storedownloadd (80KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/icloudmailagent (6.2MB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.emdash.ShipIt (8KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.kagi.kagimacOS (308KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/app.kaleidoscope.v4 (10.6MB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.readdle.handoff
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/org.m0k.transmission (176KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/MeowingCat.MacsyZones (144KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.electron.meridiem (224KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.mitchellh.ghostty (4KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.smoothcsv.desktop (8KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.hnc.Discord.ShipIt
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/company.thebrowser.dia (139.0MB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/fr.handbrake.HandBrake
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/app.macdown.macdown3000 (940KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/dev.kiro.desktop.ShipIt
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.intii.CopilotForXcode (316KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.mimestream.Mimestream
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.grammarly.ProjectLlama (5.9MB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.googlecode.mactlmgr.tlu (484KB)
+[2026-02-15 08:45:40] [clean] REMOVED /Users/rob/Library/Caches/com.axosoft.gitkraken.ShipIt (12KB)
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/com.duckduckgo.macos.browser (157.7MB)
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/com.electron.meridiem.ShipIt (8KB)
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/io.github.wickenico.wailbrew (80KB)
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/company.thebrowser.browser.helper
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/com.plausiblelabs.crashreporter.data
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/com.duckduckgo.macos.DBP.backgroundAgent (17.9MB)
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/com.grammarly.ProjectLlama.UpdateService (1.0MB)
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/org.whispersystems.signal-desktop.ShipIt (8KB)
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/com.onevcat.Kingfisher.ImageCache.default (50.5MB)
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/com.omnigroup.framework.OmniSoftwareUpdate
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/app.kaleidoscope.v4.xpc.GitIntegrationService
+[2026-02-15 08:45:41] [clean] REMOVED /Users/rob/Library/Caches/AAProfilePicture_303694E7-C44D-4FA1-9731-AF9BBCFCE819.png (72KB)
+[2026-02-15 08:45:41] [clean] SKIPPED /Users/rob/Library/Logs/Claude (protected)
+[2026-02-15 08:45:41] [clean] SKIPPED /Users/rob/Library/Logs/JetBrains (protected)
+[2026-02-15 08:45:41] [clean] SKIPPED /Users/rob/Library/Logs/com.apple.AMPLibraryAgent (protected)
+[2026-02-15 08:45:41] [clean] SKIPPED /Users/rob/Library/Logs/com.apple.CloudTelemetry (protected)
+[2026-02-15 08:45:41] [clean] SKIPPED /Users/rob/Library/Logs/com.apple.wifi.syncable-networks.legacy.plist (protected)
+[2026-02-15 08:45:41] [clean] SKIPPED /Users/rob/Library/Logs/com.apple.wifi.syncable-networks.plist (protected)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/Zed (48KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/zoom.us
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/Baseband
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/Homebrew (20KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/Meridiem (8KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/warp.log (40KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/Assistant
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/ZoomPhone
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/fsck_hfs.log (20KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/CoreSimulator (40KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/CrashReporter (12KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/wsUpgrade.log
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/GitHub Desktop
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/SiriTTSService
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/warp.log.old.0 (84KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/warp.log.old.1 (56KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/warp.log.old.2 (68KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/warp.log.old.3 (220KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/warp.log.old.4 (220KB)
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/iPod Speech.log
+[2026-02-15 08:45:42] [clean] REMOVED /Users/rob/Library/Logs/DiagnosticReports (1.2MB)
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/PhotosSearch.aapbz (72KB)
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/com.smoothcsv.desktop (4KB)
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/PrivacyPreservingMeasurement
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/TTD_JavaIS_1703118505.727543.log
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/TTD_JavaIS_1703208524.364361.log
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/TTD_JavaIS_1703287496.639675.log
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/TTD_JavaIS_1712533941.168715.log
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/TTD_JavaIS_1712534583.909108.log
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/TTD_JavaIS_1712638839.682749.log
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/TTD_JavaIS_1713136229.177957.log
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/TTD_JavaIS_1728972606.582639.log
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/TTD_JavaIS_1728972971.224708.log
+[2026-02-15 08:45:43] [clean] REMOVED /Users/rob/Library/Logs/Microsoft Teams Helper (Renderer)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Saved Application State/com.apple.Dictionary.savedState (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Saved Application State/com.apple.InstallAssistant.macOSMonterey.savedState (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Saved Application State/com.apple.InstallAssistant.macOSSequoia.savedState (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Saved Application State/com.apple.InstallAssistant.macOSVentura.savedState (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Saved Application State/com.apple.MigrateAssistant.savedState (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Saved Application State/com.apple.SSE.CaptureData.savedState (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Saved Application State/com.apple.ScriptEditor2.savedState (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Saved Application State/com.apple.clock~iosmac.savedState (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.photoanalysisd (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.akd (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.QuickLook.thumbnailcache (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.iconservices* (protected)
+[2026-02-15 08:45:49] [clean] SKIPPED /Users/rob/Library/Preferences/com.apple.recentitems.plist (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.wallpaper.agent/Data/Library/Caches/com.apple.wallpaper.caches (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches/PFSceneGeographyData.index (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches/PFSceneTaxonomyData.index (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches/com.apple.HomeKit (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches/com.apple.VisualIntelligence (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches/com.apple.mediaanalysisd (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/JetPackCache (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/WebKit (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.AppStore (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.AppleMediaServices (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.itunesstored (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.-2417890708855011662.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.-4733748633353167552.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.-6780277465686202818.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.14153899609806.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.215426932792739358.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.26919328759.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.2844661561058500568.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.2894038297468774578.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.3427910662493396681.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.3465968951862004152.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.3987059877150253887.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.AppStore/Data/Library/Caches/com.apple.sharekit.6390717652150762066.png (protected)
+[2026-02-15 08:45:52] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.configurator.xpc.InternetService/Data/tmp/* (protected)
+[2026-02-15 08:46:04] [clean] SKIPPED /Users/rob/Library/Caches/com.dropbox.* (protected)
+[2026-02-15 08:46:04] [clean] SKIPPED /Users/rob/Library/Caches/com.getdropbox.dropbox (protected)
+[2026-02-15 08:46:04] [clean] SKIPPED /Users/rob/Library/Caches/com.google.GoogleDrive (protected)
+[2026-02-15 08:46:04] [clean] SKIPPED /Users/rob/Library/Caches/com.box.desktop (protected)
+[2026-02-15 08:46:04] [clean] SKIPPED /Users/rob/Library/Caches/com.microsoft.OneDrive (protected)
+[2026-02-15 08:46:04] [clean] SKIPPED /Users/rob/Library/Caches/com.microsoft.Word (protected)
+[2026-02-15 08:46:04] [clean] SKIPPED /Users/rob/Library/Caches/com.microsoft.Excel (protected)
+[2026-02-15 08:46:04] [clean] SKIPPED /Users/rob/Library/Caches/com.microsoft.Powerpoint (protected)
+[2026-02-15 08:46:04] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.iWork.Numbers (protected)
+[2026-02-15 08:46:08] [clean] REMOVED /Users/rob/Library/pnpm/store/v10
+[2026-02-15 08:46:14] [clean] REMOVED /Users/rob/.bun/install/cache/ms
+[2026-02-15 08:46:14] [clean] REMOVED /Users/rob/.bun/install/cache/mz
+[2026-02-15 08:46:14] [clean] REMOVED /Users/rob/.bun/install/cache/ajv
+[2026-02-15 08:46:14] [clean] REMOVED /Users/rob/.bun/install/cache/arg
+[2026-02-15 08:46:14] [clean] REMOVED /Users/rob/.bun/install/cache/dlv
+[2026-02-15 08:46:14] [clean] REMOVED /Users/rob/.bun/install/cache/clsx
+[2026-02-15 08:46:14] [clean] REMOVED /Users/rob/.bun/install/cache/glob
+[2026-02-15 08:46:14] [clean] REMOVED /Users/rob/.bun/install/cache/gopd
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/jiti
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/keyv
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/levn
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/next
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/once
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/pify
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/yaml
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/acorn
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/chalk
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/debug
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/fastq
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/isexe
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/json5
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/react
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/slash
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/tslib
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/which
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/braces
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/busboy
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/cssesc
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/eslint
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/espree
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/globby
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/hasown
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/ignore
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/is-map
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/is-set
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/merge2
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/nanoid
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/rimraf
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/semver
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/uri-js
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/wrappy
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/csstype
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/deep-is
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/esquery
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/esutils
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/find-up
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/flatted
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/globals
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/is-glob
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/isarray
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/js-yaml
+[2026-02-15 08:46:15] [clean] REMOVED /Users/rob/.bun/install/cache/p-limit
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/pirates
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/postcss
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/resolve
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/reusify
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/sucrase
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/tapable
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/thenify
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/anymatch
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/argparse
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/axe-core
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/chokidar
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/dir-glob
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/doctrine
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/for-each
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/fsevents
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/has-flag
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/inflight
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/inherits
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/is-regex
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/minimist
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/minipass
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/own-keys
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/p-locate
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/path-key
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/prettier
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/punycode
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/react-is
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/readdirp
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/acorn-jsx
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/call-bind
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/callsites
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/commander
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/es-errors
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/esrecurse
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/fast-glob
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/get-proto
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/graphemer
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/has-proto
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/is-bigint
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/is-number
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/is-string
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/is-symbol
+[2026-02-15 08:46:16] [clean] REMOVED /Users/rob/.bun/install/cache/jackspeak
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/js-tokens
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/lilconfig
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/lru-cache
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/minimatch
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/path-type
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/picomatch
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/react-dom
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/scheduler
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/set-proto
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/strip-bom
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/type-fest
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/word-wrap
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/wrap-ansi
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/ansi-regex
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/aria-query
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/call-bound
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/color-name
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/concat-map
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/didyoumean
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/estraverse
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/fill-range
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/flat-cache
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/globalthis
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/is-extglob
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/is-weakmap
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/is-weakref
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/is-weakset
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/micromatch
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/optionator
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/path-parse
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/picocolors
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/postcss-js
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/prelude-ls
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/prop-types
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/read-cache
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/strip-ansi
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/styled-jsx
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/text-table
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/type-check
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/typescript
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/ansi-styles
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/any-promise
+[2026-02-15 08:46:17] [clean] REMOVED /Users/rob/.bun/install/cache/array-union
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/client-only
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/cross-spawn
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/emoji-regex
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/es-abstract
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/fs.realpath
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/glob-parent
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/graceful-fs
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/has-bigints
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/has-symbols
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/imurmurhash
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/is-callable
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/json-buffer
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/locate-path
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/object-hash
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/object-keys
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/path-exists
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/path-scurry
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/signal-exit
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/tailwindcss
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/thenify-all
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/yocto-queue
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/caniuse-lite
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/dunder-proto
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/eslint-scope
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/get-tsconfig
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/import-fresh
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/is-data-view
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/lodash.merge
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/loose-envify
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/lucide-react
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/resolve-from
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/run-parallel
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/side-channel
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/streamsearch
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/string-width
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/ts-api-utils
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/undici-types
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/camelcase-css
+[2026-02-15 08:46:18] [clean] REMOVED /Users/rob/.bun/install/cache/color-convert
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/function-bind
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/get-intrinsic
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/internal-slot
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/is-bun-module
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/jsx-ast-utils
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/language-tags
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/object-assign
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/object.assign
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/object.values
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/parent-module
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/shebang-regex
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/source-map-js
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/array-includes
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/ast-types-flow
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/axobject-query
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/balanced-match
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/eastasianwidth
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/is-binary-path
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/is-core-module
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/is-date-object
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/is-path-inside
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/is-typed-array
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/normalize-path
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/object-inspect
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/object.entries
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/object.groupby
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/postcss-import
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/postcss-nested
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/supports-color
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/tailwind-merge
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/to-regex-range
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/tsconfig-paths
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/util-deprecate
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/brace-expansion
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/es-object-atoms
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/es-to-primitive
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/fast-deep-equal
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/has-tostringtag
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/is-array-buffer
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/math-intrinsics
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/natural-compare
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/queue-microtask
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/safe-push-apply
+[2026-02-15 08:46:19] [clean] REMOVED /Users/rob/.bun/install/cache/safe-regex-test
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/shebang-command
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/unbox-primitive
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/data-view-buffer
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/enhanced-resolve
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/fast-levenshtein
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/file-entry-cache
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/foreground-child
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/is-negative-zero
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/is-number-object
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/path-is-absolute
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/resolve-pkg-maps
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/side-channel-map
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/which-collection
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/binary-extensions
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/define-properties
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/is-async-function
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/is-boolean-object
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/lines-and-columns
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/safe-array-concat
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/set-function-name
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/side-channel-list
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/which-typed-array
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/es-define-property
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/es-set-tostringtag
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/eslint-config-next
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/iterator.prototype
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/object.fromentries
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/typed-array-buffer
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/typed-array-length
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/which-builtin-type
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/damerau-levenshtein
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/es-iterator-helpers
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/es-shim-unscopables
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/eslint-module-utils
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/eslint-plugin-react
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/eslint-visitor-keys
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/postcss-load-config
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/set-function-length
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/strip-json-comments
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/tailwindcss-animate
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/array.prototype.flat
+[2026-02-15 08:46:20] [clean] REMOVED /Users/rob/.bun/install/cache/define-data-property
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/escape-string-regexp
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/eslint-plugin-import
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/functions-have-names
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/json-schema-traverse
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/postcss-value-parser
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/side-channel-weakmap
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/ts-interface-checker
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/data-view-byte-length
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/data-view-byte-offset
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/is-generator-function
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/string.prototype.trim
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/which-boxed-primitive
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/available-typed-arrays
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/eslint-plugin-jsx-a11y
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/get-symbol-description
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/is-shared-array-buffer
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/package-json-from-dist
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/reflect.getprototypeof
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/regexp.prototype.flags
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/array.prototype.flatmap
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/call-bind-apply-helpers
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/function.prototype.name
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/is-finalizationregistry
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/is-fullwidth-code-point
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/postcss-selector-parser
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/string.prototype.repeat
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/typed-array-byte-length
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/typed-array-byte-offset
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/array-buffer-byte-length
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/array.prototype.findlast
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/array.prototype.tosorted
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/class-variance-authority
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/has-property-descriptors
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/language-subtag-registry
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/string.prototype.trimend
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/eslint-plugin-react-hooks
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/string.prototype.includes
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/string.prototype.matchall
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/fast-json-stable-stringify
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/possible-typed-array-names
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/string.prototype.trimstart
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/arraybuffer.prototype.slice
+[2026-02-15 08:46:21] [clean] REMOVED /Users/rob/.bun/install/cache/eslint-import-resolver-node
+[2026-02-15 08:46:22] [clean] REMOVED /Users/rob/.bun/install/cache/array.prototype.findlastindex
+[2026-02-15 08:46:22] [clean] REMOVED /Users/rob/.bun/install/cache/supports-preserve-symlinks-flag
+[2026-02-15 08:46:22] [clean] REMOVED /Users/rob/.bun/install/cache/eslint-import-resolver-typescript
+[2026-02-15 08:46:22] [clean] REMOVED /Users/rob/.bun/install/cache/json-stable-stringify-without-jsonify
+[2026-02-15 08:46:23] [clean] REMOVED /Users/rob/.azure/logs/telemetry.log (32KB)
+[2026-02-15 08:46:50] [clean] SKIPPED /Users/rob/Library/Developer/Xcode/iOS DeviceSupport/12.5.7 (16H81)/Symbols/System/Library/Caches/com.apple.dyld (protected)
+[2026-02-15 08:46:50] [clean] REMOVED /Users/rob/Library/Developer/Xcode/UserData/IB Support/Simulator Devices
+[2026-02-15 08:46:50] [clean] REMOVED /Users/rob/.nuget/packages/fli (544KB)
+[2026-02-15 08:46:50] [clean] REMOVED /Users/rob/.nuget/packages/flip (72KB)
+[2026-02-15 08:46:50] [clean] REMOVED /Users/rob/.nuget/packages/flips (1.7MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/fparsec (1.7MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/rx-core (3.6MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/rx-linq (18.4MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/fsharp.core (10.8MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/rx-interfaces (652KB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/google.ortools (7.1MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/google.protobuf (6.4MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/optano.modeling (29.6MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/gurobi.optimizer (196.7MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/mathnet.numerics (22.7MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/mathnet.symbolics (1.8MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/netstandard.library (68KB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/rx-platformservices (900KB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/optano.modeling.gurobi (40KB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/mathnet.numerics.fsharp (2.1MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/microsoft.netcore.platforms (72KB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/google.ortools.runtime.osx-x64 (73.0MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/google.ortools.runtime.win-x64 (70.5MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/google.ortools.runtime.linux-x64 (88.1MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/google.ortools.runtime.osx-arm64 (69.5MB)
+[2026-02-15 08:46:51] [clean] REMOVED /Users/rob/.nuget/packages/google.ortools.runtime.linux-arm64 (94.9MB)
+[2026-02-15 08:46:51] [clean] SKIPPED /Users/rob/Library/Caches/com.navicat.* (protected)
+[2026-02-15 08:46:51] [clean] SKIPPED /Users/rob/Library/Caches/com.dbeaver.* (protected)
+[2026-02-15 08:46:51] [clean] SKIPPED /Users/rob/Library/Caches/com.redis.RedisInsight (protected)
+[2026-02-15 08:46:54] [clean] REMOVED /Users/rob/Library/Application Support/Claude/Cache/Cache_Data (333.5MB)
+[2026-02-15 08:46:54] [clean] REMOVED /Users/rob/Library/Application Support/Claude/Cache/No_Vary_Search (8KB)
+[2026-02-15 08:46:55] [clean] REMOVED /Users/rob/Library/Application Support/Claude/Code Cache/js (173.4MB)
+[2026-02-15 08:46:55] [clean] REMOVED /Users/rob/Library/Application Support/Claude/Code Cache/wasm (8KB)
+[2026-02-15 08:46:55] [clean] REMOVED /Users/rob/Library/Application Support/Claude/GPUCache/index (260KB)
+[2026-02-15 08:46:55] [clean] REMOVED /Users/rob/Library/Application Support/Claude/GPUCache/data_0 (44KB)
+[2026-02-15 08:46:55] [clean] REMOVED /Users/rob/Library/Application Support/Claude/GPUCache/data_1 (264KB)
+[2026-02-15 08:46:55] [clean] REMOVED /Users/rob/Library/Application Support/Claude/GPUCache/data_2 (1.0MB)
+[2026-02-15 08:46:55] [clean] REMOVED /Users/rob/Library/Application Support/Claude/GPUCache/data_3 (8KB)
+[2026-02-15 08:46:55] [clean] REMOVED /Users/rob/Library/Application Support/Claude/DawnGraphiteCache/index (260KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Claude/DawnGraphiteCache/data_0 (8KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Claude/DawnGraphiteCache/data_1 (264KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Claude/DawnGraphiteCache/data_2 (8KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Claude/DawnGraphiteCache/data_3 (8KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Claude/DawnWebGPUCache/index (260KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Claude/DawnWebGPUCache/data_0 (8KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Claude/DawnWebGPUCache/data_1 (264KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Claude/DawnWebGPUCache/data_2 (8KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Claude/DawnWebGPUCache/data_3 (8KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedData/585eba7c0c34fd6b30faac7c62a42050bfbc0086 (11.8MB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedData/994fd12f8d3a5aa16f17d42c041e5809167e845a (11.8MB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedData/b6a47e94e326b5c209d118cf0f994d6065585705 (12.4MB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedData/bdd88df003631aaa0bcbe057cb0a940b80a476fa (12.4MB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Code/DawnGraphiteCache/index (260KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Code/DawnGraphiteCache/data_0 (8KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Code/DawnGraphiteCache/data_1 (264KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Code/DawnGraphiteCache/data_2 (8KB)
+[2026-02-15 08:46:56] [clean] REMOVED /Users/rob/Library/Application Support/Code/DawnGraphiteCache/data_3 (8KB)
+[2026-02-15 08:46:57] [clean] REMOVED /Users/rob/Library/Application Support/Code/DawnWebGPUCache/index (260KB)
+[2026-02-15 08:46:57] [clean] REMOVED /Users/rob/Library/Application Support/Code/DawnWebGPUCache/data_0 (8KB)
+[2026-02-15 08:46:57] [clean] REMOVED /Users/rob/Library/Application Support/Code/DawnWebGPUCache/data_1 (264KB)
+[2026-02-15 08:46:57] [clean] REMOVED /Users/rob/Library/Application Support/Code/DawnWebGPUCache/data_2 (8KB)
+[2026-02-15 08:46:57] [clean] REMOVED /Users/rob/Library/Application Support/Code/DawnWebGPUCache/data_3 (8KB)
+[2026-02-15 08:46:57] [clean] REMOVED /Users/rob/Library/Application Support/Code/GPUCache/index (260KB)
+[2026-02-15 08:46:57] [clean] REMOVED /Users/rob/Library/Application Support/Code/GPUCache/data_0 (44KB)
+[2026-02-15 08:46:57] [clean] REMOVED /Users/rob/Library/Application Support/Code/GPUCache/data_1 (264KB)
+[2026-02-15 08:46:57] [clean] REMOVED /Users/rob/Library/Application Support/Code/GPUCache/data_2 (1.0MB)
+[2026-02-15 08:46:57] [clean] REMOVED /Users/rob/Library/Application Support/Code/GPUCache/data_3 (4.0MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/ms-mssql.mssql-1.39.0 (5.2MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/eamodio.gitlens-17.10.0 (10.9MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/github.copilot-chat-0.37.6 (19.1MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/ionide.ionide-fsharp-7.31.1 (53.0MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/ecmel.vscode-html-css-2.0.14 (16KB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/pomdtr.excalidraw-editor-3.9.1 (2.6MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/bierner.markdown-mermaid-1.32.0 (10.8MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/tlaplus.vscode-ide-2026.2.141525 (27.3MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/openai.chatgpt-0.4.74-darwin-arm64 (40.1MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/ms-azuretools.vscode-containers-2.4.1 (1.2MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/visualjj.visualjj-0.22.7-darwin-arm64 (13.5MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/marclipovsky.string-manipulation-0.7.47 (1.2MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/anthropic.claude-code-2.1.42-darwin-arm64 (92.6MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/github.vscode-pull-request-github-0.128.0 (1.9MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/ms-dotnettools.csharp-2.120.3-darwin-arm64 (178.7MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/ms-dotnettools.csdevkit-2.10.3-darwin-arm64 (63.0MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/ms-mssql.sql-database-projects-vscode-1.5.6 (10.4MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/salesforce.salesforcedx-vscode-core-65.17.3 (4.9MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/streetsidesoftware.code-spell-checker-4.5.6 (2.9MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/rust-lang.rust-analyzer-0.3.2786-darwin-arm64 (16.2MB)
+[2026-02-15 08:46:58] [clean] REMOVED /Users/rob/Library/Application Support/Code/CachedExtensionVSIXs/ms-dotnettools.dotnet-interactive-vscode-1.0.7071010 (1.9MB)
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/update
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/go.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/m4.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/xz.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/z3.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/aom.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/apr.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/fmt.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gcc.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/ghc.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gmp.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/isl.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/lit.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/lld.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/lz4.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/lzo.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/nim.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/nss.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/srt.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/bash.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/cffi.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/cgif.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/fftw.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/flac.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gdbm.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/glib.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/grep.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/lame.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/lima.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/llvm.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/lzip.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/make.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/mpfr.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/nasm.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/node.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/npth.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/nspr.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/opus.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/perl.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/rust.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/sdl2.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/swig.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/vips.formula.lock
+[2026-02-15 08:47:04] [clean] REMOVED /opt/homebrew/var/homebrew/locks/webp.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/x264.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/x265.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/xvid.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/zimg.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/zstd.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/bison.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/boost.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/cairo.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/cjson.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/cmake.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/dav1d.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gnupg.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gpgme.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/hwloc.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/imath.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libb2.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libuv.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/meson.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/ninja.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/pango.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/pcre2.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/rav1e.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/scons.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/speex.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/xmlto.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/brotli.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/c-ares.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/frei0r.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/giflib.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gnutls.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/jasper.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libaec.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libass.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libidn.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libmpc.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libogg.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libomp.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libpng.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libraw.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libssh.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libusb.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libvpx.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libx11.formula.lock
+[2026-02-15 08:47:05] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libxau.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libxcb.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/llhttp.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/mpg123.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/nettle.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/pixman.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/snappy.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/sqlite.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/theora.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/uthash.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/uvwasi.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/xtrans.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/zeromq.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/ada-url.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/aribb24.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/cargo-c.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/certifi.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/cxxopts.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/docbook.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/doxygen.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/fribidi.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gettext.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gnu-sed.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gpgmepp.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/highway.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/itstool.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/jpeg-xl.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libavif.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libexif.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libgit2.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libheif.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libidn2.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libksba.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/librist.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/librsvg.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libsoxr.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libssh2.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libthai.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libtiff.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libtool.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libvmaf.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libxext.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libyaml.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/maturin.formula.lock
+[2026-02-15 08:47:06] [clean] REMOVED /opt/homebrew/var/homebrew/locks/mozjpeg.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/ncurses.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/openexr.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/openjph.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/p11-kit.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/pkgconf.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/rpds-py.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/shaderc.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/svt-av1.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/texinfo.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/unbound.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/apr-util.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/asciidoc.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/autoconf.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/automake.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/docutils.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/freetype.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/harfbuzz.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/help2man.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/icu4c@78.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/jbig2dec.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libde265.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libdicom.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libevent.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libmatio.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libpaper.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libtasn1.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libxdmcp.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/open-mpi.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/openjpeg.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/pinentry.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/py3cairo.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/pydantic.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/readline.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/simdjson.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/utf8proc.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/coreutils.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/graphite2.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/leptonica.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libassuan.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libbluray.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libdatrie.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libgcrypt.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libngtcp2.formula.lock
+[2026-02-15 08:47:07] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libsodium.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libvorbis.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/llama.cpp.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/mbedtls@3.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/mpdecimal.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/openslide.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/openssl@3.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/pycparser.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/rapidjson.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/tesseract.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/xcb-proto.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/xorgproto.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/fast_float.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/fontconfig.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gdk-pixbuf.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gnu-getopt.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/jpeg-turbo.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libarchive.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libdeflate.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libnghttp2.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libnghttp3.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libplacebo.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libsndfile.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libudfread.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libvidstab.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libxrender.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/pygobject3.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/rubberband.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/sphinx-doc.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/subversion.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/docbook-xsl.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/imagemagick.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libultrahdr.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libunibreak.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/little-cms2.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/python@3.12.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/python@3.13.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/python@3.14.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/util-macros.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/whisper-cpp.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/cryptography.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libgpg-error.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libunistring.formula.lock
+[2026-02-15 08:47:08] [clean] REMOVED /opt/homebrew/var/homebrew/locks/opencore-amr.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/berkeley-db@5.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/cabal-install.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libimagequant.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libmicrohttpd.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/libsamplerate.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/vulkan-loader.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/hdrhistogram_c.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/python-certifi.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/vulkan-headers.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/ca-certificates.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/shared-mime-info.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/source-highlight.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/python-setuptools.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /opt/homebrew/var/homebrew/locks/gobject-introspection.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /usr/local/var/homebrew/locks/update
+[2026-02-15 08:47:09] [clean] REMOVED /usr/local/var/homebrew/locks/xz.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /usr/local/var/homebrew/locks/lz4.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /usr/local/var/homebrew/locks/nats.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /usr/local/var/homebrew/locks/zstd.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /usr/local/var/homebrew/locks/cmake.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /usr/local/var/homebrew/locks/libb2.formula.lock
+[2026-02-15 08:47:09] [clean] REMOVED /usr/local/var/homebrew/locks/meson.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/ninja.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/pcre2.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/sqlite.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/gettext.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/readline.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/mpdecimal.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/pkg-config.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/nats-server.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/openssl@1.1.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/python@3.11.formula.lock
+[2026-02-15 08:47:10] [clean] REMOVED /usr/local/var/homebrew/locks/ca-certificates.formula.lock
+[2026-02-15 08:47:19] [clean] REMOVED /Users/rob/Library/Caches/com.apple.dt.Xcode/TestReport
+[2026-02-15 08:47:19] [clean] REMOVED /Users/rob/Library/Developer/Xcode/iOS Device Logs/iOS Device Logs 14.1.db-wal
+[2026-02-15 08:47:19] [clean] REMOVED /Users/rob/Library/Developer/Xcode/iOS Device Logs/iOS Device Logs 14.2.db-wal
+[2026-02-15 08:47:19] [clean] REMOVED /Users/rob/Library/Developer/Xcode/iOS Device Logs/iOS Device Logs 14.3.db-wal
+[2026-02-15 08:47:19] [clean] REMOVED /Users/rob/Library/Developer/Xcode/iOS Device Logs/iOS Device Logs 14.0.1.db-wal
+[2026-02-15 08:47:19] [clean] REMOVED /Users/rob/Library/Developer/Xcode/iOS Device Logs/iOS Device Logs 14.3.1.db-wal
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/logs/20260119T082902 (344KB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/logs/20260119T083132 (180KB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/logs/20260129T160113 (4KB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/logs/20260129T160133 (4KB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/logs/20260203T144601 (4KB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/logs/20260208T171419 (296KB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/logs/20260208T171548 (188KB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/logs/20260214T144859 (284KB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/logs/20260214T145013 (192KB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/logs/20260214T162910 (200KB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/Cache/Cache_Data (27.7MB)
+[2026-02-15 08:47:20] [clean] REMOVED /Users/rob/Library/Application Support/Code/Cache/No_Vary_Search (8KB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Application Support/discord/Cache/Cache_Data (312.3MB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/us.zoom.xos/WebKit (4KB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/us.zoom.xos/Cache.db-wal
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/us.zoom.xos/fsCachedData
+[2026-02-15 08:47:21] [clean] SKIPPED /Users/rob/Library/Caches/net.whatsapp.WhatsApp/org.sparkle-project.Sparkle (protected)
+[2026-02-15 08:47:21] [clean] SKIPPED /Users/rob/Library/Caches/com.openai.chat/org.sparkle-project.Sparkle (protected)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.openai.chat/Cache.db (48KB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.openai.chat/async.log
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.openai.chat/io.sentry
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.openai.chat/Cache.db-shm (32KB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.openai.chat/Cache.db-wal
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.openai.chat/nux.CB3699EE.mov (5.3MB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.openai.chat/nux.070152025.mp4 (1.0MB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.openai.chat/com.onevcat.Kingfisher.ImageCache (2.8MB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.anthropic.claudefordesktop/Cache.db (48KB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.anthropic.claudefordesktop/Cache.db-shm (32KB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.anthropic.claudefordesktop/Cache.db-wal (196KB)
+[2026-02-15 08:47:21] [clean] REMOVED /Users/rob/Library/Caches/com.anthropic.claudefordesktop/fsCachedData
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/mcp.log (260KB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/main.log (2.0MB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/swift.log (4KB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/coworkd.log (24KB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/claude.ai-web.log (52KB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/claude_vm_node.log (4KB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/cowork_vm_node.log (16KB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/unknown-window.log (52KB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/cowork_vm_swift.log (8KB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/mcp-server-Filesystem.log (200KB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/mcp-server-Read and Write Apple Notes.log (132KB)
+[2026-02-15 08:47:22] [clean] REMOVED /Users/rob/Library/Logs/Claude/mcp-server-PDF Tools - Analyze, Extract, Fill, Compare.log (96KB)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.Music (protected)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.podcasts (protected)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.podcasts/Data/tmp/StreamedMedia (protected)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.podcasts/Data/tmp/*.heic (protected)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.podcasts/Data/tmp/*.img (protected)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Containers/com.apple.podcasts/Data/tmp/CFNetworkDownload_oupKEz.tmp (protected)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Caches/tv.plex.player.desktop (protected)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Caches/com.netease.163music (protected)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Caches/com.colliderli.iina (protected)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Caches/org.videolan.vlc (protected)
+[2026-02-15 08:47:22] [clean] SKIPPED /Users/rob/Library/Caches/io.mpv (protected)
+[2026-02-15 08:47:23] [clean] SKIPPED /Users/rob/Library/Caches/com.cleanshot.* (protected)
+[2026-02-15 08:47:23] [clean] SKIPPED /Users/rob/Library/Caches/com.reincubate.camo (protected)
+[2026-02-15 08:47:23] [clean] SKIPPED /Users/rob/Library/Caches/com.xnipapp.xnip (protected)
+[2026-02-15 08:47:23] [clean] SKIPPED /Users/rob/Library/Caches/com.readdle.smartemail-Mac (protected)
+[2026-02-15 08:47:23] [clean] SKIPPED /Users/rob/Library/Caches/com.airmail.* (protected)
+[2026-02-15 08:47:23] [clean] SKIPPED /Users/rob/Library/Caches/com.todoist.mac.Todoist (protected)
+[2026-02-15 08:47:23] [clean] SKIPPED /Users/rob/Library/Caches/com.any.do.* (protected)
+[2026-02-15 08:47:23] [clean] REMOVED /Users/rob/.zcompdump (56KB)
+[2026-02-15 08:47:23] [clean] REMOVED /Users/rob/.zcompdump-RGK-14-M1-MBP-5.9 (52KB)
+[2026-02-15 08:47:23] [clean] REMOVED /Users/rob/.zcompdump-RGK-14-M1-MBP-5.9.zwc (120KB)
+[2026-02-15 08:47:23] [clean] SKIPPED /Users/rob/Library/Caches/com.vmware.fusion (protected)
+[2026-02-15 08:47:34] [clean] REMOVED /var/folders/zx/sdl69vjd6fg6g5jhffrdfz240000gn/T/tmp.gRMnTb8R7a (24KB)
+[2026-02-15 08:47:35] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.rosetta.update (protected)
+[2026-02-15 08:47:35] [clean] SKIPPED /Users/rob/Library/Caches/com.apple.amp.mediasevicesd (protected)
+# ========== clean session ended at 2026-02-15 08:47:37, 825 items, 10.36GB ==========

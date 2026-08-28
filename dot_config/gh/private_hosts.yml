@@ -1,0 +1,5 @@
+github.com:
+    user: rkayman
+    git_protocol: ssh
+    users:
+        rkayman:

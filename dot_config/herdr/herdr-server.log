@@ -1,0 +1,34 @@
+2026-08-03T12:28:25.296496Z  INFO herdr::platform::macos: raised server file descriptor soft limit previous=256 target=8192
+2026-08-03T12:28:25.296822Z  INFO herdr::api::server: api server listening path=/Users/rob/.config/herdr/herdr.sock
+2026-08-03T12:28:25.297472Z  INFO herdr::app: using pane scrollback configuration pane_scrollback_limit_bytes=10000000
+2026-08-03T12:28:25.315922Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-03T12:28:25.320419Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=1 rows=24 cols=80 scrollback_limit_bytes=10000000
+2026-08-03T12:28:25.324998Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=1 pid=21171
+2026-08-03T12:28:25.325270Z  INFO herdr::logging: workspace created event="workspace.create" subsystem="workspace" outcome="ok" workspace_id="w1" pane_id=1
+2026-08-03T12:28:25.325280Z  INFO herdr::logging: workspace focused event="workspace.focus" subsystem="workspace" outcome="ok" workspace_id="w1"
+2026-08-03T12:28:25.325301Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-08-03T12:28:25.325334Z  INFO herdr::server::headless: created startup workspace cwd=/Users/rob
+2026-08-03T12:28:25.325449Z  INFO herdr::server::headless: client protocol socket listening path=/Users/rob/.config/herdr/herdr-client.sock
+2026-08-03T12:28:25.325479Z  INFO herdr::server::headless: herdr server started api_socket=/Users/rob/.config/herdr/herdr.sock client_socket=/Users/rob/.config/herdr/herdr-client.sock
+2026-08-03T12:28:25.325820Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="server" outcome="started" pid=21141
+2026-08-03T12:28:25.583778Z  INFO herdr::server::headless: client connected client_id=2 cols=93 rows=27 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame
+2026-08-03T12:28:30.332395Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/Users/rob/.config/herdr/session.json workspaces=1
+2026-08-03T12:28:35.428463Z  INFO herdr::server::headless: client detach requested via keybind client_id=2
+2026-08-03T12:28:35.429624Z  INFO herdr::server::headless: client disconnected client_id=2
+2026-08-03T12:28:53.559314Z  INFO herdr::server::headless: client connected client_id=4 cols=93 rows=55 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame
+2026-08-03T12:28:58.966271Z  INFO herdr::server::headless: client resize client_id=4 cols=93 rows=27 cell_width_px=0 cell_height_px=0
+2026-08-03T12:29:02.287278Z  INFO herdr::server::headless: client resize client_id=4 cols=93 rows=55 cell_width_px=0 cell_height_px=0
+2026-08-03T12:29:12.193075Z  INFO herdr::server::headless: client detach requested via keybind client_id=4
+2026-08-03T12:29:12.194440Z  INFO herdr::server::headless: client disconnected client_id=4
+2026-08-03T13:18:41.501491Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-03T14:41:26.489802Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-03T15:48:08.065964Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-03T17:19:24.039226Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-03T19:04:47.156521Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-03T19:49:26.543345Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-03T20:19:26.570343Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-03T21:21:20.766586Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-03T22:42:34.652467Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-04T00:51:15.019484Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-04T00:51:15.269046Z  INFO herdr::logging: update available event="update.available" subsystem="update" outcome="ok" version="0.8.0"
+2026-08-04T00:51:15.515784Z  INFO herdr::update: auto-update check: v0.8.0 available through Homebrew, waiting for explicit install
