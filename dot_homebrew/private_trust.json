@@ -1,0 +1,17 @@
+{
+  "trustedtaps": [
+    "blacktop/tap",
+    "dashlane/tap",
+    "felixkratz/formulae",
+    "finestructure/tap",
+    "galaxy-io/tap",
+    "nats-io/nats-tools",
+    "typewhisper/tap"
+  ],
+  "trustedcasks": [
+    "nikitabobko/tap/aerospace"
+  ],
+  "trustedformulae": [
+    "dmmulroy/tap/jj-starship"
+  ]
+}
