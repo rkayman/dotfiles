@@ -12,16 +12,16 @@ config-version = 2
 
 # Start Sketchybar with AeroSpace initialization
 after-startup-command = [
-    'exec-and-forget sketchybar',
+#    'exec-and-forget sketchybar',
     'exec-and-forget borders active_color=0xff00ff00 inactive_color=0xff494d64 width=7.5'
 ] #
 
 # Notify Sketchybar when moving between workspaces
-exec-on-workspace-change = [
-    '/bin/bash',
-    '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-] #
+#exec-on-workspace-change = [
+#    '/bin/bash',
+#    '-c',
+#    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+#] #
 
 # Start AeroSpace at login
 start-at-login = true
@@ -154,8 +154,7 @@ on-window-detected = [
     },
     {
         if = '''
-            test %{app-bundle-id} = com.dashlane.dashlanephonefinal \
-            || test %{app-bundle-id} = net.freemacsoft.AppCleaner \
+            test %{app-bundle-id} = net.freemacsoft.AppCleaner \
             || test %{app-bundle-id} = com.googlecode.mactlmgr.tlu
         ''',
         run = ['layout floating', 'move-node-to-workspace U'],
@@ -163,6 +162,10 @@ on-window-detected = [
     {
         if = 'test %{app-bundle-id} ~= com.apple.',
         run = ['layout floating', 'move-node-to-workspace U'],
+    },
+    {
+        if = 'test %{app-bundle-id} = com.dashlane.dashlanephonefinal',
+        run = ['layout floating', 'move-node-to-workspace Z'],
     },
     {
         # Default rule for all other apps

@@ -56,7 +56,7 @@
   // Terminal Font Settings
   "terminal": {
     "dock": "right",
-    "font_family": "MesloLGSDZ Nerd Font", //"MesloLGS Nerd Font", // "Zed Plex Mono",
+    "font_family": "JetBrainsMono Nerd Font Mono", //"MesloLGS Nerd Font", // "Zed Plex Mono",
     "font_size": 13,
     // Terminal line height: comfortable (1.618), standard(1.3) or `{ "custom": 2 }`
     "line_height": "comfortable",
