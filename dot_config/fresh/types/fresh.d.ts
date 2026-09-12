@@ -223,6 +223,31 @@ type TsCompositeHunk = {
 	*/
 	ops?: string;
 };
+type TsSyntaxRegion = {
+	/**
+	* Byte offset of the first row's first byte.
+	*/
+	start: number;
+	/**
+	* Byte offset one past the last row's newline.
+	*/
+	end: number;
+	/**
+	* What the rows are written in: a path (`src/main.rs`, `Makefile`)
+	* or a language token (`py`, `rust`). Nothing is opened or read;
+	* it only selects the grammar.
+	*/
+	language: string;
+	/**
+	* Bytes at the start of every row that are not code.
+	*/
+	prefix: number;
+	/**
+	* Parsers the rows feed, in order; the first colours the rows. Empty
+	* means the shared stream `0`. See the type docs.
+	*/
+	streams: Array<number>;
+};
 type TsCreateCompositeBufferOptions = {
 	/**
 	* Buffer name (displayed in tabs/title)
@@ -1440,6 +1465,42 @@ type TreeNode = {
 	* Ignored when `item_height == 1`.
 	*/
 	extraLines?: Array<TextPropertyEntry>;
+	/**
+	* The span of `text` this row exists to show, in **chars**.
+	*
+	* A row wider than the panel is windowed by the host, and without this
+	* the window can only start at the head of the line — which is exactly
+	* where a search result's match usually is not (issue #1580). Naming the
+	* span lets the host rest the window on it instead, and the reader pans
+	* away from there.
+	*
+	* Chars rather than columns because that is the unit a plugin can count:
+	* it has the string, not the terminal's width table. The host converts.
+	* Out-of-range values are harmless — they resolve to the end of the text.
+	*/
+	windowAnchor?: TextWindowAnchor | null;
+};
+type TextWindowAnchor = {
+	/**
+	* Chars at the head of the row that never move.
+	*
+	* A row's leading pieces are usually its *identity* rather than its
+	* content — a search result's `path:line` — and a window that slid them
+	* away left rows that could not be told apart. They stay put and the
+	* rest of the row slides under them, the same relationship the indent
+	* and checkbox glyphs already have with the body.
+	*/
+	pinned: number;
+	/**
+	* Char index, in the whole row, where the span the row exists to show
+	* starts. Must be at or after `pinned`; a span inside the pinned head is
+	* always visible anyway.
+	*/
+	start: number;
+	/**
+	* Length of the span, in chars. Zero is allowed and means a point.
+	*/
+	len: number;
 };
 type WidgetSpec = {
 	"kind": "row";
@@ -1535,23 +1596,6 @@ type WidgetSpec = {
 	* controls aligns their value cells. `0` = no padding.
 	*/
 	labelWidth: number;
-	/**
-	* In-place edit buffer. `Some` = the value is being edited:
-	* the cell renders this text (with caret / selection) instead
-	* of the formatted value. `None` = display mode.
-	*/
-	editText?: string | null;
-	/**
-	* Byte offset of the edit caret within `edit_text`. `-1` =
-	* no caret (ignored unless `edit_text` is `Some`).
-	*/
-	editCursor: number;
-	/**
-	* Selection byte range within `edit_text` (`start`, `end`).
-	* `-1` for either end = no selection.
-	*/
-	editSelStart: number;
-	editSelEnd: number;
 	key?: string | null;
 } | {
 	"kind": "dropdown";
@@ -1731,6 +1775,23 @@ type WidgetSpec = {
 	* check in their renderer.
 	*/
 	hoverStyle?: Partial<OverlayOptions>;
+	/**
+	* How the button looks at rest — not focused, not hovered,
+	* not disabled. `None` (the default) keeps the look its
+	* `intent` gives it.
+	*
+	* The sibling of `hover_style`, and the answer to the same
+	* question one state earlier: `hover_style` could say what a
+	* control looks like under the pointer, but nothing could say
+	* that it is a control at all. A bare button is just its
+	* label, so without this the only way to mark a word as
+	* clickable was to spend a colour on it — and `intent` offers
+	* three fixed looks, none of them an underline.
+	*
+	* Focus, hover and disabled each still win over it, in that
+	* order of immediacy.
+	*/
+	style?: Partial<OverlayOptions>;
 } | {
 	"kind": "spacer";
 	cols: number;
@@ -2010,7 +2071,30 @@ type WidgetSpec = {
 	* equal-split path.
 	*/
 	widthPct?: number | null;
+	/**
+	* When this section is a Block child of a Row, request exactly
+	* this many columns. Takes precedence over `width_pct`.
+	*
+	* A percent cannot express "a third of the row": the integer
+	* rounding does not divide, so three equal siblings either
+	* overflow the panel — and the host wraps the last one onto a
+	* line of its own — or leave a ragged remainder that all lands
+	* on one side. Columns are what a caller with a measure in mind
+	* actually has, and asking in them is exact.
+	*/
+	widthCols?: number | null;
 	key?: string | null;
+	/**
+	* How the section's own chrome — its border and its legend —
+	* looks while `key` is the hovered widget.
+	*
+	* A section emits no hit area of its own, so it never becomes
+	* the hovered widget by being pointed at. Give it the key of
+	* the control inside it and the frame answers with that
+	* control: a card whose rows share one key lights as a card
+	* rather than one row at a time.
+	*/
+	hoverStyle?: Partial<OverlayOptions>;
 } | {
 	"kind": "windowEmbed";
 	/**
@@ -2058,6 +2142,74 @@ type WidgetSpec = {
 	*/
 	screenSpace: boolean;
 };
+type WidgetPanelOptions = {
+	/**
+	* When the focus key names no tabbable widget, fall back to the
+	* first one.
+	*
+	* True is the historical behaviour and stays the default. A panel
+	* for which *nothing focused* is a real resting state must say so:
+	* otherwise clearing focus does not clear it, because the next
+	* repaint silently re-seeds it onto whatever happens to be first.
+	* The plugin's own record of focus then disagrees with the host's,
+	* and a key meant for no one is delivered to that widget — on the
+	* welcome screen, leaving its file finder put focus on "Show this
+	* screen on startup", so the next Space turned the page off with
+	* nothing on screen to say why.
+	*
+	* `None` is what every plugin written before this field said, and
+	* reads as `true`.
+	*/
+	autoFocusFirst?: boolean;
+	/**
+	* The panel is a *page*: its whole content scrolls together in a
+	* window the host owns, the way a document does, rather than each
+	* list windowing itself to the panel's height. Lists and text areas
+	* inside a page take their natural height. The arrow and page keys
+	* scroll it when no widget takes them, the wheel and its scrollbar
+	* move it, and `scrollToWidget` moves it to a widget by key.
+	*
+	* A buffer-mounted panel only; the dock and the floating panels
+	* window their lists. Unspecified reads as `false`.
+	*/
+	page?: boolean;
+	/**
+	* Keep this panel's focus and the reader's place on the same thing.
+	*
+	* For a [`page`](WidgetPanelOptions::page) — a document laid out by
+	* widgets, in one window the host scrolls — focus and where the reader is
+	* are two answers
+	* to one question: what am I looking at. Left independent they contradict
+	* each other, and the contradiction is not cosmetic: Tab moves focus while
+	* the page stays three cards above, and a movement key moves the page
+	* while Enter still fires whatever the last Tab left focused — off screen,
+	* unasked for.
+	*
+	* Saying so makes the host maintain both directions. The movement keys
+	* (`Up`/`Down`, the page keys, `Home`/`End`) move a *reading row* through
+	* the page's content instead of scrolling the window, and focus goes to
+	* the widget on the row it lands on — or to nothing, when the row carries
+	* none. A focus move (Tab, Shift+Tab, a plugin's `setFocusKey`) puts the
+	* reader on the focused widget's own region, and the window follows
+	* minimally, so a Tab between two controls of one card does not move the
+	* page under them.
+	*
+	* "Nothing focused" is a state this option produces constantly — most rows
+	* of a page are prose — so a panel declaring it almost certainly wants
+	* `autoFocusFirst: false` too, and the Tab ring seeds from the reader
+	* rather than from the top of the document.
+	*
+	* `None` reads as `false`: every panel written before this field keeps
+	* focus and the window independent.
+	*
+	* It makes `autoFocusFirst` false whatever the panel said — see
+	* [`WidgetPanelOptions::auto_focus_first`]. The pair is not a
+	* setting with two useful values; it is one broken combination, so
+	* it is not representable rather than advised against.
+	*/
+	focusFollowsCursor?: boolean;
+};
+type ScrollAlign = "top" | "minimal";
 type WidgetAction = {
 	"kind": "focusAdvance";
 	delta: number;
@@ -2388,6 +2540,35 @@ type CreateVirtualBufferOptions = {
 	* Hide from tab bar (default: false)
 	*/
 	hiddenFromTabs?: boolean;
+	/**
+	* Open as a tab without taking the view (default: false).
+	*
+	* Creating a virtual buffer otherwise makes it the active buffer, and
+	* there is no quiet way back: switching away afterwards is a second
+	* visible switch, and the layout the panel composed while it briefly
+	* held the pane is not the one it gets later. Set this when the buffer
+	* is one the editor offers rather than one the reader asked for — a
+	* startup page beside a restored session — and it appears in the tab
+	* bar with the current buffer left alone.
+	*
+	* Ignored together with `hiddenFromTabs`, which has no tab bar to be
+	* background in.
+	*/
+	background?: boolean;
+	/**
+	* Current-line highlight for this buffer (default: follow the editor
+	* setting). Pass `false` for a page whose rows are laid out by a widget
+	* panel — the caret's line means nothing to the reader there, and a
+	* lit band across a centred wordmark is noise.
+	*/
+	highlightCurrentLine?: boolean;
+	/**
+	* Whether the buffer is user-scrollable (default: true). `false` for a
+	* buffer a widget panel is mounted into: the panel is described in the
+	* tree and its widgets — or, for a `page` panel, its one viewport —
+	* own the scrolling, and the buffer under them never moves.
+	*/
+	scrollable?: boolean;
 	/**
 	* Initial content as **spans, concatenated verbatim** — a span is a run
 	* of text with optional styling, not a line. Nothing inserts newlines
@@ -2999,6 +3180,38 @@ interface EditorAPI {
 	*/
 	openFileInSplit(splitId: number, path: string, line?: number, column?: number): boolean;
 	/**
+	* Preview a file in a specific split, as the editor's single
+	* *preview* (ephemeral) tab — what the File Explorer does on a
+	* single click, pointed at a split you name.
+	* 
+	* Use this instead of `openFileInSplit` while the user is *browsing*
+	* a list of locations — search results, references, diagnostics — and
+	* call it again as the selection moves. The previous preview is
+	* replaced rather than piling up as tabs, a file the user already had
+	* open is switched to and never demoted to a preview, and the buffer
+	* becomes a permanent tab as soon as they commit to it (open it,
+	* edit it, or move focus to another split). Focus does not move, so
+	* the panel or prompt driving the browse keeps the keys.
+	* 
+	* `line` / `column` are 1-indexed and optional. Returns false only
+	* when the command channel is dead; a file that cannot be previewed
+	* (unreadable, or large enough that loading it would have to ask the
+	* user about its encoding) is skipped quietly on the editor side —
+	* a browse never raises a dialog. Pair with `dismissPreview` when the
+	* browse ends without a choice.
+	*/
+	previewFileInSplit(splitId: number, path: string, line?: number, column?: number): boolean;
+	/**
+	* Drop the preview tab opened by `previewFileInSplit`, if it is still
+	* the preview — the browse ended without a choice (the user cancelled
+	* the prompt), so the split goes back to what it was showing.
+	* 
+	* A preview the user edited is kept and promoted to a permanent tab:
+	* their typing was the commitment. Safe to call when there is no
+	* preview.
+	*/
+	dismissPreview(): boolean;
+	/**
 	* Open `path` as a regular buffer in forced large-file (file-backed)
 	* mode. The file is created (empty) if missing — designed for
 	* buffers that will be filled by a concurrent `spawnProcess` with
@@ -3591,6 +3804,14 @@ interface EditorAPI {
 	*/
 	updateCompositeAlignment(bufferId: number, hunks: TsCompositeHunk[]): boolean;
 	/**
+	* Say where a buffer this plugin composed carries code, and in what
+	* language, so the host highlights it. Replaces the buffer's
+	* previous regions; setting the buffer's content clears them.
+	* 
+	* Uses typed Vec<SyntaxRegion> - serde validates field names at runtime
+	*/
+	setSyntaxRegions(bufferId: number, regions: TsSyntaxRegion[]): boolean;
+	/**
 	* Close a composite buffer
 	*/
 	closeCompositeBuffer(bufferId: number): boolean;
@@ -4141,6 +4362,24 @@ interface EditorAPI {
 	*/
 	activeWindow(): number;
 	/**
+	* Scroll a widget-panel buffer so the widget with `key` sits at the
+	* top of its split, with the cursor on it.
+	* 
+	* The panel already knows where it painted every keyed widget, so
+	* a page navigating to its own content asks rather than derives.
+	* Deriving means painting, reading the buffer text back, matching
+	* your own captions as strings and converting line numbers to byte
+	* offsets — which is what this replaces, and which broke twice in
+	* the welcome screen before it did.
+	* 
+	* A widget spanning several rows (a card whose rows share one key)
+	* anchors at its top. Unknown keys are a no-op.
+	* 
+	* Queued like every layout mutation: `await editor.flush()` before
+	* reading back.
+	*/
+	scrollToWidget(bufferId: number, key: string, align?: ScrollAlign): boolean;
+	/**
 	* Set the scroll position of a split.
 	* 
 	* Queued, like every layout mutation: the returned bool only reports that
@@ -4195,6 +4434,22 @@ interface EditorAPI {
 	* navigation) call this with `true` after `createBufferGroup` returns.
 	*/
 	setBufferShowCursors(bufferId: number, show: boolean): boolean;
+	/**
+	* Choose the grammar a virtual buffer is highlighted with.
+	*
+	* Panel buffers are named `*<panel id>*`, which resolves to no grammar.
+	* A plugin composing a known text shape into one calls this so the host
+	* highlights it instead of the plugin painting per-row overlays. `name`
+	* is resolved like a virtual buffer's own name, so an extension in it
+	* (`"stream.diff"`) selects the grammar.
+	*/
+	setBufferLanguage(bufferId: number, name: string): boolean;
+	/**
+	* Show old/new diff line numbers in a composed diff stream's gutter. The
+	* host derives them from the stream's `@@` headers when the content is
+	* set, so the plugin never numbers a row itself.
+	*/
+	setBufferDiffGutter(bufferId: number, enabled: boolean): boolean;
 	/**
 	* Set a line indicator in the gutter
 	*/
@@ -4278,9 +4533,12 @@ interface EditorAPI {
 	/**
 	* Enable or disable indentation guides for a buffer, overriding the global
 	* `editor.indentation_guide` setting. Tool views that render non-editable
-	* content (e.g. the Git Log commit-detail diff) disable them.
+	* content (e.g. the Git Log commit-detail diff) disable them, and so does
+	* markdown compose mode. `null` withdraws the override rather than forcing
+	* guides on, so a buffer leaving compose gets back whatever the user's own
+	* settings resolve to — the same shape `setFoldIndicators` uses.
 	*/
-	setIndentationGuide(bufferId: number, enabled: boolean): boolean;
+	setIndentationGuide(bufferId: number, enabled: boolean | null): boolean;
 	/**
 	* Set the view mode for a buffer ("source" or "compose")
 	*/
@@ -4523,7 +4781,7 @@ interface EditorAPI {
 	* Returns true on successful queue, false if the IPC channel is
 	* closed.
 	*/
-	mountWidgetPanel(panelId: number, bufferId: number, specObj: unknown): boolean;
+	mountWidgetPanel(panelId: number, bufferId: number, specObj: unknown, optionsObj?: WidgetPanelOptions): boolean;
 	/**
 	* Replace the spec of a previously-mounted widget panel.
 	* No-op if the panel id was never mounted.
@@ -4557,7 +4815,34 @@ interface EditorAPI {
 	* Mount a declarative widget panel as a centered floating
 	* overlay (not bound to any virtual buffer).
 	*/
-	mountFloatingWidget(panelId: number, specObj: unknown, widthPct: number, heightPct: number, asDock?: boolean, focusMarker?: boolean, title?: string, closable?: boolean, startBlurred?: boolean): boolean;
+	mountFloatingWidget(panelId: number, specObj: unknown, widthPct: number, heightPct: number, asDock?: boolean, focusMarker?: boolean, title?: string, closable?: boolean, startBlurred?: boolean, mode?: string): boolean;
+	/**
+	* Mount a declarative widget panel as a **sidebar section**: a titled,
+	* collapsible section of the file explorer's column, appended after
+	* the explorer and any section already there. The sidebar is shown if
+	* it was hidden.
+	* 
+	* `rows` is the section's requested body height in rows (`0` shares the
+	* column with the explorer); a divider the user has dragged overrides
+	* it. `opts.closable` (default `true`) puts a `×` on the header that
+	* removes the section and fires the panel's `cancel` `widget_event`;
+	* `opts.startBlurred` (default `false`) mounts without taking keyboard
+	* focus.
+	* 
+	* The section is an ordinary panel: `updateFloatingWidget(panelId, spec)`
+	* replaces its content, `unmountFloatingWidget(panelId)` removes the
+	* section, `widgetMutate` / `widgetCommand` apply, and its hits arrive
+	* through the `widget_event` hook with this `panelId` unchanged.
+	* `floatingPanelControl(panelId, "sidebar_rows", n)` changes the
+	* requested rows, `"focus"` / `"blur"` work as for the dock, and
+	* `"dock"` / `"center"` re-anchor the panel out of the sidebar (with
+	* `"sidebar"` bringing a dock or centered panel in). Mounting an id that
+	* is already a section replaces its content in place.
+	*/
+	mountSidebarSection(panelId: number, specObj: unknown, title: string, rows: number, opts?: {
+		closable?: boolean;
+		startBlurred?: boolean;
+	}): boolean;
 	/**
 	* Replace the spec of the currently-mounted floating widget panel.
 	*/
@@ -4570,8 +4855,11 @@ interface EditorAPI {
 	* Control a mounted floating panel's placement / focus without
 	* re-sending its spec. `op`: "dock" (`arg` = width in columns),
 	* "center", "focus", "blur", "fullscreen" (`arg != 0` makes a
-	* centered panel cover the whole frame over the dock). See
-	* `PluginCommand::FloatingPanelControl`.
+	* centered panel cover the whole frame over the dock), "sidebar"
+	* (`arg` = requested rows; re-anchors the panel as a sidebar section
+	* under the file explorer — "dock" / "center" re-anchor it back out),
+	* "sidebar_rows" (`arg` = requested rows for a section; a divider the
+	* user has dragged wins). See `PluginCommand::FloatingPanelControl`.
 	*/
 	floatingPanelControl(panelId: number, op: string, arg: number): boolean;
 	/**
