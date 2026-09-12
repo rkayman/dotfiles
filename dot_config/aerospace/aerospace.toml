@@ -131,7 +131,8 @@ on-window-detected = [
         test %{app-bundle-id} = dev.zed.Zed \
         || test %{app-bundle-id} = com.jetbrains.rider \
         || test %{app-bundle-id} = com.apple.dt.Xcode \
-        || test %{app-bundle-id} = com.axosoft.gitkraken
+        || test %{app-bundle-id} = com.axosoft.gitkraken \
+        || test %{app-bundle-id} = net.zametek.projectplan
         ''',
         run = ['layout accordion', 'move-node-to-workspace P'],
     },
