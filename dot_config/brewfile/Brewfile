@@ -1,0 +1,214 @@
+tap "blacktop/tap", trusted: true
+tap "dashlane/tap", trusted: true
+tap "dmmulroy/tap"
+tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
+tap "finestructure/tap", trusted: true
+tap "galaxy-io/tap", trusted: true
+tap "nats-io/nats-tools", trusted: true
+tap "nikitabobko/tap"
+tap "typewhisper/tap", trusted: true
+
+## ESSENTIAL ##
+# Architectural Decision Record tool in Rust
+brew "adrs"
+# Print a list of paths as a tree of paths
+brew "as-tree"
+# CLI to audit posture and evaluate compromise blast radius
+brew "bagel"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Bash scripts that integrate bat with various command-line tools
+brew "bat-extras"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# CLI tool for datetime arithmetic, parsing, formatting and more
+brew "bttf"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# TUI system monitor for Apple Silicon
+brew "devcockpit"
+# Modern, maintained replacement for ls
+brew "eza"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Text editor for your terminal: easy, powerful and fast
+brew "fresh-editor"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Replace zsh completion selection menu with fzf
+brew "fzf-tab"
+# Post-modern modal text editor
+brew "helix"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
+# Improved top (interactive process viewer)
+brew "htop"
+# Unix documentation system
+brew "man-db"
+# Mac App Store command-line interface
+brew "mas"
+# Terminal image, video, directory, and Markdown viewer
+brew "mcat"
+# Deep clean and optimize your Mac
+brew "mole"
+# Simple text editor with clickable interface
+brew "msedit"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Interactive minimalist TUI to query JSON, CSV, and TSV using SQL
+brew "qo"
+# Ultra-fast CSV data-wrangling toolkit
+brew "qsv"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Prettier way to inspect network connections
+brew "snitch"
+# Constrain, log and scan your MCP connections for security vulnerabilities
+brew "snyk-agent-scan"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Interactive TUI for Homebrew
+brew "taproom"
+# Tasks, boards & notes for the command-line habitat
+brew "taskline"
+# General purpose fuzzy finder TUI
+brew "television"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Why is this running?
+brew "witr"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# Unified Starship prompt module for Git and Jujutsu repositories
+brew "dmmulroy/tap/jj-starship", trusted: true
+# A window border system for macOS
+brew "felixkratz/formulae/borders"
+
+# Secure runtime for JavaScript and TypeScript
+brew "deno"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Safe, concurrent, practical language
+brew "rust"
+# Rust toolchain installer
+brew "rustup"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+
+
+## ESSENTIAL FONTS ##
+cask "font-awesome-terminal-fonts"
+cask "font-courier-prime"
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+cask "font-hack"
+cask "font-hack-nerd-font"
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-league-gothic"
+cask "font-meslo-lg"
+cask "font-meslo-lg-dz"
+cask "font-meslo-lg-nerd-font"
+cask "font-sauce-code-pro-nerd-font"
+cask "font-source-code-pro"
+cask "font-source-sans-3"
+cask "font-source-serif-4"
+
+
+## ESSENTIAL APPS & UTILS ##
+cargo "books-for-bots"
+cargo "xan"
+mas "Code Peek+", id: 6760186407
+mas "Dashlane", id: 517914548
+mas "DuckDuckGo Privacy for Safari", id: 1482920575
+mas "Folder Quick Look", id: 6753110395
+mas "Hotspot Shield", id: 771076721
+mas "Litterbox", id: 6805719216
+mas "Magnet", id: 441258766
+mas "Markgram", id: 6754908716
+mas "Obsidian Web Clipper", id: 6720708363
+mas "OneDrive", id: 823766827
+mas "PCalc", id: 403504866
+mas "Play", id: 1596506190
+mas "StopTheMadness Pro", id: 6471380298
+mas "The Duplicate Finder", id: 654667344
+mas "The Unarchiver", id: 425424353
+mas "Vinegar", id: 1591303229
+mas "Wipr", id: 1662217862
+
+
+## DEV TOOLS ##
+# Microsoft Azure CLI 2.0
+brew "azure-cli"
+# Developer CLI that provides commands for working with Azure resources
+brew "azure-dev"
+# Lightweight server clone of Azure Storage that simulates it locally
+brew "azurite"
+# Azure Storage data transfer utility
+brew "azcopy"
+# Powerful, enterprise-ready, open source web server with automatic HTTPS
+brew "caddy"
+# ACP server that exposes Codex CLI functionality for ACP-compatible clients
+brew "codex-acp"
+# Scans binaries and SBOMs for known vulnerabilities and prepares reports
+brew "cve-bin-tool"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# .NET Core
+brew "dotnet@9"
+# GNU compiler collection
+brew "gcc"
+# GitHub command-line tool
+brew "gh"
+# Cinematic Git commit replay tool
+brew "gitlogue"
+# Static code analysis tool you need for your HTML
+brew "htmlhint"
+# Git-compatible distributed version control system
+brew "jj"
+# Terminal markdown viewer
+brew "mdfried"
+# Fast markdown preview server with live reload and theme support
+brew "mdserve"
+# Utility for NATS Server and JetStream administration
+brew "nats"
+# Lightweight cloud messaging system
+brew "nats-server"
+# Autonomous, self-improving AI agent in a single Rust binary
+brew "opencrabs"
+# Turn any webpage into a desktop app with Rust with ease
+brew "pake"
+# Peek inside Parquet files right from your terminal
+brew "parqeye"
+# CLI for Postgres with auto-completion and syntax highlighting
+brew "pgcli"
+# Cloud native development platform
+brew "pulumi"
+# Swiss army knife for Pulumi development
+brew "pulumictl"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# AI-powered natural language end-to-end testing framework
+brew "shortest"
+# Security scanner for AI agent skills
+brew "skillspector"
+# Code review TUI with vim keybindings
+brew "tuicr"
+# Little beautifier tool for xcodebuild
+brew "xcbeautify"
+# Swift tool to parse xcodebuild output for coding agents
+brew "xcsift"
+# TUI Client for NATS
+brew "galaxy-io/tap/gnat"
