@@ -149,7 +149,8 @@ on-window-detected = [
         if = '''
         test %{app-bundle-id} = com.mitchellh.ghostty \
         || test %{app-bundle-id} = dev.warp.Warp-Stable \
-        || test %{app-bundle-id} = com.raphaelamorim.canario
+        || test %{app-bundle-id} = com.raphaelamorim.canario \
+        || test %{app-bundle-id} = be.zenjoy.zentty
         ''',
         run = ['move-node-to-workspace T'],
     },
@@ -245,7 +246,8 @@ on-window-detected = [
     alt-p = 'workspace P'  # Programming (e.g. Zed, Xcode, Rider, VSCode)
     alt-s = 'workspace S'  # Social (e.g. Zoom, Teams, Slack, FaceTime)
     alt-t = 'workspace T'  # Terminal (e.g. Ghostty, Warp, Terminal)
-    alt-u = 'workspace U'  # Utilities (e.g. Dashlane)
+    alt-u = 'workspace U'  # Utilities (e.g. Homebrew, App Store)
+    alt-z = 'workspace Z'  # Zen (e.g. Dashlane)
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -260,6 +262,7 @@ on-window-detected = [
     alt-shift-s = 'move-node-to-workspace S'
     alt-shift-t = 'move-node-to-workspace T'
     alt-shift-u = 'move-node-to-workspace U'
+    alt-shift-z = 'move-node-to-workspace Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'

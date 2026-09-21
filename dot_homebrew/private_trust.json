@@ -12,6 +12,7 @@
     "nikitabobko/tap/aerospace"
   ],
   "trustedformulae": [
-    "dmmulroy/tap/jj-starship"
+    "dmmulroy/tap/jj-starship",
+    "raine/aven/aven"
   ]
 }
