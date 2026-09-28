@@ -64,7 +64,7 @@ brew,gcc,dev,keep,GNU compiler collection,,
 brew,gh,dev,keep,GitHub command-line tool,,
 lib,ghostscript,lib,ignore,Interpreter for PostScript and PDF,,mactex man-db
 brew,gitlogue,dev,keep,Cinematic Git commit replay tool,,
-lib,glib,lib,ignore,Core application library for C,,cve-bin-tool ffmpeg-full mactex man-db midnight-commander pake
+lib,glib,lib,ignore,Core application library for C,,cve-bin-tool ffmpeg-full mactex man-db pake
 brew,go,dev,keep,Open source programming language to build simple/reliable/efficient software,,
 lib,groff,lib,ignore,GNU troff text-formatting system,,man-db
 brew,headson,misc,keep,Head/tail for structured data,,
@@ -88,7 +88,7 @@ brew,mas,base,keep,Mac App Store command-line interface,,
 brew,mcat,base,keep,"Terminal image, video, directory, and Markdown viewer",,
 brew,mdfried,dev,retire,Terminal markdown viewer,,
 brew,mdserve,dev,keep,Fast markdown preview server with live reload and theme support,,
-brew,midnight-commander,base,keep,Terminal-based visual file manager,,
+brew,midnight-commander,base,retire,Terminal-based visual file manager,,
 brew,mole,base,keep,Deep clean and optimize your Mac,,
 brew,msedit,base,keep,Simple text editor with clickable interface,,
 brew,nats,dev,keep,Utility for NATS Server and JetStream administration,,
@@ -106,7 +106,7 @@ brew,pandoc,base,keep,Swiss-army knife of markup format conversion,,
 brew,pandoc-plot,base,keep,Render and include figures in Pandoc documents using many plotting toolkits,,
 lib,pango,lib,ignore,Framework for layout and rendering of i18n text,,ffmpeg-full mactex man-db pake
 brew,parqeye,dev,keep,Peek inside Parquet files right from your terminal,,
-lib,pcre2,lib,ignore,Perl compatible regular expressions library with a new API,,cve-bin-tool ffmpeg-full mactex man-db midnight-commander nmap pake ripgrep
+lib,pcre2,lib,ignore,Perl compatible regular expressions library with a new API,,cve-bin-tool ffmpeg-full mactex man-db nmap pake ripgrep
 brew,pgcli,dev,keep,CLI for Postgres with auto-completion and syntax highlighting,,
 brew,pipx,dev,keep,Execute binaries from Python packages in isolated environments,,
 brew,postgresql@18,dev,keep,Object-relational database system,"restart_service: :changed, link: true",

@@ -172,8 +172,6 @@ brew "mas"
 brew "mcat"
 # Fast markdown preview server with live reload and theme support
 brew "mdserve"
-# Terminal-based visual file manager
-brew "midnight-commander"
 # Deep clean and optimize your Mac
 brew "mole"
 # Simple text editor with clickable interface
@@ -286,8 +284,6 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# Organize Your macOS Launchpad Apps
-brew "blacktop/tap/lporg"
 # Unified Starship prompt module for Git and Jujutsu repositories
 brew "dmmulroy/tap/jj-starship", trusted: true
 # A window border system for macOS
