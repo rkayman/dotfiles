@@ -140,6 +140,7 @@ on-window-detected = [
         if = '''
         test %{app-bundle-id} = com.apple.FaceTime \
         || test %{app-bundle-id} = app.legcord.Legcord \
+        || test %{app-bundle-id} = app.swiftcord \
         || test %{app-bundle-id} = com.apple.MobileSMS \
         || test %{app-bundle-id} = net.whatsapp.WhatsApp
         ''',
