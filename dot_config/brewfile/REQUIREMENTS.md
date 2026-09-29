@@ -7,16 +7,18 @@
 | File | Role |
 |---|---|
 | `catalog.csv` | Source of truth, synced across Macs by chezmoi. Columns: `type,name,use,status,description,options,needed_by` |
-| `rp` | zsh + awk tool: `create`, `sync`, `deps`, `check`, `list`, `stats` (`./rp help`) |
+| `rp` | zsh + awk tool: `bootstrap`, `create`, `sync`, `deps`, `prune`, `check`, `list`, `stats` (`./rp help`) |
 | `Brewfile-base` | Generated (`rp create --for=base`). Installed on every Mac. |
 | `Brewfile-main` | Raw `brew bundle dump` (no vscode), rewritten by every `rp sync`. History lives in chezmoi. |
 
-**Vocabulary**
+**New Mac, day zero:** chezmoi brings `rp` → `./rp bootstrap` → `brew bundle --file=Brewfile-base` → `./rp create --for=<purpose> | brew bundle --file=-`
+
+**Vocabulary** — *type* says how it installs; *use* says why it's here.
 
 | Column | Values |
 |---|---|
-| `type` | `tap` `brew` `cask` `mas` `cargo` `go` `uv` `npm` `krew` `flatpak` `whalebrew`, plus `lib` (a brew formula others depend on) |
-| `use` | `base` `dev` `ai` `media` `fun` `misc` `lib` … — `**x**` means guessed, not yet confirmed |
+| `type` | The Brewfile verb: `tap` `brew` `cask` `mas` `cargo` `go` `uv` `npm` `krew` `flatpak` `whalebrew` |
+| `use` | `base` `dev` `ai` `media` `fun` `misc`, and `lib` = a dependency of something else (rp forces `status=ignore`) — `**x**` means guessed |
 | `status` | `keep` (install) · `review` (undecided) · `retire` (no longer favoured) · `ignore` (track, never install directly) |
 | `needed_by` | Written by `rp sync` on `retire`/`ignore` rows only: the `keep`/`review` brews and casks that still depend on it. Don't edit by hand. |
 
@@ -74,16 +76,16 @@ No host tracking: each machine has a purpose (dev, server hosting, AI model dev,
 When I try an app on any machine and keep it, it must land in the catalog. Chezmoi keeps the catalog in sync across machines.
 - `rp sync` on any Mac appends new items as `**misc**` / `review`; commit via chezmoi.
 
-### REQ-20260926-012 — Dependencies are `lib` / `lib` / `ignore` ✅
-Keep dependency formulae in the catalog with `type=lib`, `use=lib`, `status=ignore`.
-- 18 rows: aom, apr, c-ares, certifi, dav1d, frei0r, fribidi, glib, groff, highway, jpeg-turbo, jpeg-xl, libass, libsodium, pango, pcre2, snappy, svt-av1.
-- `rp create` never writes `lib` rows; brew installs them with their dependents.
-- `rp sync` matches dump `brew "x"` to an existing `lib` row, and files *new* dependencies as `lib` / `lib` / `ignore`.
-- `rp check` flags any row where type, use and status disagree.
+### REQ-20260926-012 — Dependencies: `type=brew`, `use=lib`, `status=ignore` ✅ *(amended 2026-09-29)*
+Keep dependency formulae in the catalog. `use=lib` is the only marker; `type` stays the Brewfile verb (`brew`).
+- *Amended 2026-09-29 (OQ-16):* `type=lib` dropped as redundant. One fact, one column.
+- 22 rows today. `rp create` never writes them; brew installs them with their dependents.
+- `rp sync` forces `status=ignore` on every `use=lib` row, heals any legacy `type=lib` row, and files *new* dependencies as `brew` / `lib` / `ignore`.
+- `rp check` warns on legacy `type=lib`, `use=lib` without `ignore`, and `use=lib` on a non-brew row.
 
 ### REQ-20260926-013 — Brewfile-base ✅
 `Brewfile-base` is always installed on all machines.
-- *Amended 2026-09-28:* macOS only, no OS guards (REQ-017). 110 entries. Regenerate after editing the catalog.
+- *Amended 2026-09-28:* macOS only, no OS guards (REQ-017). 108 entries as of 2026-09-29. Regenerate after editing the catalog.
 
 ### ~~REQ-20260926-014 — Different package managers per OS~~ ⛔
 Superseded by REQ-20260928-017.
@@ -107,12 +109,31 @@ Package management is unique to each OS (all macOS, all Linux, all Windows). Thi
   - `x` retired but still installed on this Mac
   - `~` (`rp deps` only) kept brews that other kept items depend on
 - If `brew deps --for-each` fails (e.g. a formula was removed from Homebrew), `rp` warns and falls back to `brew deps --installed`. If no dependency data is available at all, `needed_by` is left untouched.
+- **`brew deps` output format** (confirmed by Rob, 2026-09-29): one line per formula or cask, `name: [dep list]`, where the list is space-delimited formula names and may be empty, one, or very long. `rp` parses `name:`, `name: ` and 400-item lists identically.
 
 ### REQ-20260928-019 — Brewfile-main is the raw dump, with history ✅
 Every live `rp sync` rewrites `Brewfile-main` with that Mac's dump (minus vscode). Chezmoi keeps the history. `--from` and `--dry-run` never touch it.
+- *2026-09-29 (OQ-14):* the last Mac to sync wins, and history will flip between Macs. Accepted as-is.
 
 ### REQ-20260928-020 — Catalog lint 🔵
 `rp check` validates hand edits: unknown type/status (errors, non-zero exit), lib consistency, unconfirmed uses/descriptions, stray `needed_by`, and the same app kept under two types. Useful later as a chezmoi pre-apply check.
+
+### REQ-20260929-021 — Prune retired items ✅
+`rp prune` uninstalls retired items that nothing needs, keeping each Mac clean and consistent with my preferred tools.
+- Candidates: `status=retire`, installed on this Mac, and `needed_by` empty, recomputed live, never read from a stale CSV.
+- Retired items still needed are listed as kept, with what needs them.
+- Preview by default; `--yes` acts. `--autoremove` adds `brew autoremove` for orphaned dependencies.
+- Order: apps and tools, then formulae, then taps. Failures don't stop the run; failed items get one retry (a retired item another retired item depends on can only go second), then are listed. Exit code 1 if anything is left.
+- Uninstallers: `brew uninstall --formula|--cask`, `brew untap`, `mas uninstall <id>`, `cargo uninstall`, `uv tool uninstall`, `npm uninstall -g`, `kubectl krew uninstall`, `whalebrew uninstall`. `go` has none, so it's listed for manual removal.
+- Refuses to run with no dependency data: it can't prove nothing needs an item.
+- Never uses `--ignore-dependencies` or `sudo`: if Homebrew says something else still needs an item, that wins.
+
+### REQ-20260929-022 — Bootstrap Homebrew on a new Mac ✅
+`rp bootstrap` makes it easy to install the latest Homebrew on a new Mac with a single command.
+- Missing: runs the official installer (`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`). It asks for your password and installs the Xcode Command Line Tools if needed.
+- Present (in PATH, `/opt/homebrew`, or `/usr/local`): `brew update` to the latest.
+- Loads `brew shellenv` for the current run. If `~/.zprofile` lacks it, prints the line to add, but doesn't edit the file because chezmoi owns dotfiles.
+- Homebrew only (decision: Rob). Prints the next commands rather than running them. `--dry-run` shows the plan. macOS only.
 
 ---
 
@@ -133,14 +154,16 @@ Every live `rp sync` rewrites `Brewfile-main` with that Mac's dump (minus vscode
 | OQ-11 retired but still needed | Keep `retire`; call out and track dependents → REQ-018 *(09-28)* |
 | OQ-12 Brewfile-main | `rp sync` rewrites it; chezmoi keeps history → REQ-019 *(09-28)* |
 | OQ-13 lib `use` | Normalized to `lib` for all lib rows *(09-28)* |
+| OQ-14 Brewfile-main churn | Keep as-is → REQ-019 note *(09-29)* |
+| OQ-15 prune | Yes → REQ-021 *(09-29)* |
+| OQ-16 lib marker | `type=brew`, `use=lib` → REQ-012 amended *(09-29)*. Cause of the earlier flip-back unknown; not the CSV tool, not `rp`. |
 
 ## Open questions
 
 | # | Question | Why it matters |
 |---|---|---|
-| OQ-14 | `Brewfile-main` holds whichever Mac synced *last*. With purpose-built Macs, chezmoi history will flip-flop between a dev Mac's dump and a media Mac's dump. Fine as-is? | History reads as churn rather than change. |
-| OQ-15 | Should `rp` get a `prune` that uninstalls this Mac's retired items that nothing needs (the `x` list minus the `^` list)? | Closes the loop from "retired" to "gone". Destructive, so it would always preview first. |
-| OQ-16 | Your 15 lib rows had `type` set back to `brew` (use and status were right). I set type back to `lib` per OQ-10. Was the revert deliberate? | If your CSV tool rewrites `type`, `rp check` will now catch it. |
+| OQ-17 | `mas uninstall` may need `sudo` on current `mas` versions (unverified). `rp prune` never escalates; a failed mas uninstall is listed for you. OK, or should prune print the `sudo` command? | Friction vs. a tool that asks for root. |
+| OQ-18 | Day zero needs chezmoi before `rp` exists. chezmoi's own installer doesn't need Homebrew, so the order works. Should a chezmoi `run_once_` script call `rp bootstrap`? (Folds into postponed REQ-015.) | Makes a new Mac a single command end to end. |
 
 ---
 
@@ -194,4 +217,19 @@ Every live `rp sync` rewrites `Brewfile-main` with that Mac's dump (minus vscode
 | 32 | Same results across gawk, mawk, busybox × dash, bash; round-trip of `Brewfile-main` (minus 18 libs) exact; `rp check` exits 1 on bad rows. | ✅ |
 | 33 | `rp check` first flagged brew `xan` vs retired cargo `xan`; changed it to ignore retired/ignored rows. Real catalog: 0 errors, 0 warnings. | ✅ |
 | 34 | Regenerated `Brewfile-base` for macOS (no OS guards): 110 entries. | ✅ |
-| 35 | Not verified: exact `brew deps --for-each` output on your Mac (the parser expects `name: dep dep`), zsh, macOS awk. | ⬜ run `./rp deps` then `./rp sync` |
+| 35 | Not verified: exact `brew deps --for-each` output on your Mac (the parser expects `name: dep dep`), zsh, macOS awk. | ✅ verified 09-29 (see 36) |
+
+### 2026-09-29
+
+| # | Step | Result |
+|---|---|---|
+| 36 | **First real run on the Mac.** Rob's `rp sync` wrote `Brewfile-main` (0 vscode lines) and populated `needed_by` for all 22 ignore rows, including cask parents (`mactex`). That proves zsh, macOS awk and the real `brew deps` output end to end. Retired items no longer appear in the dump, so the uninstalls took. | ✅ |
+| 37 | Asked 4 questions. Decisions: OQ-14 keep as-is; OQ-16 `type=brew` + `use=lib`; command named `rp bootstrap`; Homebrew only. | ✅ |
+| 38 | Snapshotted Rob's catalog. Since 09-28: ffmpeg, ghostscript, psutils, tesseract became `lib`; midnight-commander, mdfried retired. | ✅ |
+| 39 | `rp`: `use=lib` is the lib marker (`islib`); sync heals legacy `type=lib` and forces `status=ignore`; new deps filed as `brew`/`lib`/`ignore`; `rp check` rules updated. | ✅ |
+| 40 | Migrated the catalog by running `rp sync` offline with no graph (`--deps=/dev/null`, so `needed_by` untouched). Python diff: exactly 22 rows changed, type column only. `Brewfile-main` untouched. | ✅ |
+| 41 | `rp prune` built on the sync engine (`RP_PLAN`), with no second dependency engine. Tested with fake `brew`/`mas`/`cargo`: preview runs no commands and leaves the catalog untouched; `--yes` removes in order; a dependency-order failure succeeds on retry; a persistent `mas` failure is reported, exit 1; still-needed item kept; no dependency data → refuses; nothing to prune → exit 0. | ✅ |
+| 42 | `rp bootstrap` tested with a fake `uname`/`brew`: non-macOS refuses; no brew + `--dry-run` prints the official installer command; brew present → `update`, `shellenv`, version; `.zprofile` hint only when missing. The real installer was not run (sandbox). | 🟡 |
+| 43 | Graph parser tested on `name:`, `name: ` (empty lists, 169 lines) and a 400-dependency line: result identical to Rob's real `needed_by`. | ✅ |
+| 44 | Regression: gawk, mawk, busybox × dash, bash give identical `create` and `check` output. Migration changes no generated output. `Brewfile-base` regenerated: 108 entries (catalog edits since 09-28). | ✅ |
+| 45 | Checked Homebrew's installer URL (Homebrew/install README), `uninstall --formula/--cask`, `autoremove`, `untap` and `update` against current docs. brew.sh and docs.brew.sh timed out; used the GitHub README and the cached manpage. | 🟡 |

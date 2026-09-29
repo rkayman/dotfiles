@@ -12,7 +12,7 @@ tap "nikitabobko/tap"
 tap "raine/aven"
 tap "typewhisper/tap", trusted: true
 
-## BASE (110) ##
+## BASE (108) ##
 # Download with resuming and segmented downloading
 brew "aria2"
 # Print a list of paths as a tree of paths
@@ -57,8 +57,6 @@ brew "fresh-editor"
 brew "fzf"
 # Replace zsh completion selection menu with fzf
 brew "fzf-tab"
-# Interpreter for PostScript and PDF
-brew "ghostscript"
 # Post-modern modal text editor
 brew "helix"
 # Agent multiplexer that lives in your terminal
@@ -73,8 +71,6 @@ brew "man-db"
 brew "mas"
 # Terminal image, video, directory, and Markdown viewer
 brew "mcat"
-# Terminal-based visual file manager
-brew "midnight-commander"
 # Deep clean and optimize your Mac
 brew "mole"
 # Simple text editor with clickable interface

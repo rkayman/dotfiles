@@ -2,9 +2,10 @@
 # rp — Robpro: one CSV catalog of the macOS apps & utilities you use, and why.
 #
 #   catalog.csv columns: type,name,use,status,description,options,needed_by
-#     type      tap | brew | cask | mas | cargo | go | uv | npm | krew | flatpak | whalebrew
-#               lib = a brew formula that other formulae depend on (never emitted)
-#     use       base | dev | ai | media | fun | misc | lib | ...  (**use** = guessed)
+#     type      HOW it installs, i.e. the Brewfile verb:
+#               tap | brew | cask | mas | cargo | go | uv | npm | krew | flatpak | whalebrew
+#     use       WHY it's here: base | dev | ai | media | fun | misc | lib | ...  (**use** = guessed)
+#               lib = a dependency of something else; rp forces status=ignore, never emits it
 #     status    keep | review | retire | ignore   (ignore = tracked, never installed directly)
 #     options   everything after the name on a Brewfile line (e.g. id: 123, trusted: true)
 #     needed_by maintained by `rp sync` for retire/ignore rows: the keep/review
@@ -46,6 +47,15 @@ rp — manage macOS apps & utilities from one CSV (catalog.csv)
         Same report as sync, read-only, plus kept brew rows that are really
         dependencies of other kept rows.
 
+  rp prune [--yes] [--autoremove]
+        Uninstall retired items that are installed here and that nothing you
+        keep needs. Preview by default; --yes acts. Items still needed are
+        listed and kept. --autoremove also runs `brew autoremove`.
+
+  rp bootstrap [--dry-run]
+        New Mac, day zero: install Homebrew with the official installer, or
+        update it to the latest if present. Then prints the next commands.
+
   rp check      Lint the catalog (types, statuses, lib consistency, guesses).
   rp list [--for=USE[,USE]] [--status=S[,S]] [--guessed]
   rp stats
@@ -82,7 +92,8 @@ function inlist(x, list,    a, n, i) {
   for (i = 1; i <= n; i++) if (a[i] == x) return 1
   return 0
 }
-function kind(t) { return t == "lib" ? "brew" : t }   # lib rows are brew formulae
+function kind(t) { return t == "lib" ? "brew" : t }   # heals legacy type=lib rows
+function islib(t, u) { return t == "lib" || bare(u) == "lib" }
 function typeorder(t) {
   return index("tap brew cask mas cargo go uv npm krew flatpak whalebrew", kind(t))
 }
@@ -156,7 +167,7 @@ cmd_create() {
     {
       n = csvsplit($0, f); t = f[1]; name = f[2]; u = f[3]; s = f[4]; d = f[5]; o = f[6]
       if (!inlist(s, STAT)) next
-      if (t == "lib") { libs++; next }
+      if (islib(t, u)) { libs++; next }
       if (t != "tap") {
         if (!inlist(bare(u), USES)) next
         if (CONF && guessed(u)) next
@@ -218,13 +229,15 @@ cmd_sync() {
     brew bundle dump --force --no-vscode --file="$from"
   fi
   if [ -z "$deps" ]; then deps="$tmpdir/graph.txt"; brew_graph "$deps"; fi
-  awk -v REPORT="$tmpdir/report" -v GRAPH="$deps" -v VERBOSE="$verbose" "$AWK_LIB"'
+  awk -v REPORT="$tmpdir/report" -v GRAPH="$deps" -v VERBOSE="$verbose" -v PLAN="${RP_PLAN:-}" "$AWK_LIB"'
     BEGIN { havegraph = loadgraph(GRAPH) }
     FNR == 1 && NR != 1 { indump = 1 }
     !indump {
       if (FNR == 1) next
       n = csvsplit($0, f); k = kind(f[1]) SUBSEP f[2]
-      T[k] = f[1]; N[k] = f[2]; U[k] = f[3]; S[k] = f[4]; D[k] = f[5]; O[k] = f[6]; NB[k] = f[7]
+      T[k] = kind(f[1]); N[k] = f[2]; U[k] = f[3]; S[k] = f[4]; D[k] = f[5]; O[k] = f[6]; NB[k] = f[7]
+      if (f[1] == "lib") { U[k] = "lib"; healed++ }                 # legacy type=lib -> brew + use=lib
+      if (bare(U[k]) == "lib" && S[k] != "ignore") { S[k] = "ignore"; forced++ }
       keys[++nk] = k; next
     }
     # ---- Brewfile dump ----
@@ -254,7 +267,7 @@ cmd_sync() {
       for (i = 1; i <= nk; i++) {
         k = keys[i]
         if (!(k in isnew)) continue
-        if (T[k] == "brew" && (N[k] in ANYDEP)) { T[k] = "lib"; U[k] = "lib"; S[k] = "ignore"; added[++na] = "lib " N[k] "  (dependency)" }
+        if (T[k] == "brew" && (N[k] in ANYDEP)) { U[k] = "lib"; S[k] = "ignore"; added[++na] = "brew " N[k] "  (dependency: use=lib)" }
         else added[++na] = T[k] " " N[k]
       }
       # parents that count: brew/cask rows you keep or are reviewing
@@ -277,8 +290,13 @@ cmd_sync() {
           if (NB[k] != old) nbchanged++
         }
         if (S[k] == "retire" && NB[k] != "") stillneeded[++ns] = N[k] "  <- " NB[k]
-        if (S[k] == "ignore" && T[k] == "lib" && NB[k] == "" && havegraph) orphan[++no] = N[k]
+        if (S[k] == "ignore" && bare(U[k]) == "lib" && NB[k] == "" && havegraph) orphan[++no] = N[k]
         if (S[k] == "retire" && (k in installed)) stillinst[++nr] = T[k] " " N[k]
+        # prune plan: retired, installed here, and nothing you keep needs it
+        if (PLAN != "" && S[k] == "retire" && (k in installed)) {
+          if (NB[k] == "") printf "go\t%s\t%s\t%s\n", T[k], N[k], O[k] > PLAN
+          else printf "skip\t%s\t%s\t%s\n", T[k], N[k], NB[k] > PLAN
+        }
         if (!(k in installed) && S[k] != "retire" && S[k] != "ignore") missing[++nm] = T[k] " " N[k]
         if (VERBOSE && T[k] == "brew" && S[k] != "retire" && S[k] != "ignore" && (sn in NEED)) alsodep[++nd] = N[k] "  <- " sortwords(NEED[sn])
         printf "%s\t%s,%s,%s,%s,%s,%s,%s\n", sortkey(T[k], N[k]), csvq(T[k]), csvq(N[k]), csvq(U[k]), csvq(S[k]), csvq(D[k]), csvq(O[k]), csvq(NB[k])
@@ -287,6 +305,10 @@ cmd_sync() {
       printf "added %d, updated %d fields, needed_by changed %d, not installed here %d\n", na, changed, nbchanged, nm > R
       for (i = 1; i <= na; i++) print "  + " added[i] > R
       if (!havegraph) print "  (no dependency data: needed_by left as is, new formulae not checked for lib)" > R
+      if (healed) print "  normalized " healed " legacy type=lib rows to type=brew, use=lib" > R
+      if (forced) print "  set status=ignore on " forced " use=lib rows" > R
+      if (PLAN != "" && !havegraph) print "nodata" > PLAN
+      if (PLAN != "") printf "" > PLAN
       if (ns) { print "retired but still needed (" ns ") -- decide: keep it, or drop what needs it:" > R; for (i = 1; i <= ns; i++) print "  ^ " stillneeded[i] > R }
       if (no) { print "ignored libs nothing you keep needs (" no ") -- retire?:" > R; for (i = 1; i <= no; i++) print "  ! " orphan[i] > R }
       if (nr) { print "retired but still installed here (" nr ") -- brew uninstall?:" > R; for (i = 1; i <= nr; i++) print "  x " stillinst[i] > R }
@@ -295,9 +317,9 @@ cmd_sync() {
     }
   ' "$DB" "$from" | LC_ALL=C sort -t "$(printf '\t')" -k1,1 | cut -f2- > "$tmpdir/body"
   { printf '%s\n' "$HDR"; cat "$tmpdir/body"; } > "$tmpdir/new.csv"
-  cat "$tmpdir/report" >&2
+  [ -n "${RP_PLAN:-}" ] || cat "$tmpdir/report" >&2   # rp prune prints its own summary
   if [ "$dry" -eq 1 ]; then
-    echo "rp: dry run, nothing written" >&2
+    [ -n "${RP_PLAN:-}" ] || echo "rp: dry run, nothing written" >&2
   else
     cp "$DB" "$DB.bak"
     cat "$tmpdir/new.csv" > "$DB"   # overwrite in place: keeps symlinks (chezmoi) and permissions
@@ -320,8 +342,9 @@ cmd_check() {
       if (!index(" keep review retire ignore ", " " s " ")) err(name ": unknown status \"" s "\"")
       if (name == "") err("empty name")
       k = kind(t) SUBSEP name; if (k in seen) err(name ": duplicate of line " seen[k]); seen[k] = NR
-      if (t == "lib" && (bare(u) != "lib" || s != "ignore")) warn(name ": type lib should have use lib, status ignore")
-      if (t != "lib" && bare(u) == "lib") warn(name ": use lib but type " t " (should be type lib?)")
+      if (t == "lib") warn(name ": legacy type=lib; should be type=brew, use=lib (rp sync fixes it)")
+      if (bare(u) == "lib" && s != "ignore") warn(name ": use=lib should have status=ignore (rp sync fixes it)")
+      if (bare(u) == "lib" && t != "brew" && t != "lib") warn(name ": use=lib on a " t " row; only brew formulae are dependencies")
       if (t != "tap" && u == "") warn(name ": no use")
       if (guessed(u)) g++
       if (f[5] ~ /^\*\*/) warn(name ": description unconfirmed")
@@ -330,6 +353,132 @@ cmd_check() {
     }
     END { printf "%d errors, %d warnings, %d guessed uses\n", errs, warns, g; if (errs) exit 1 }
   ' "$DB"
+}
+
+# ---- prune ------------------------------------------------------------------
+# $1 = echo | run ; $2 type ; $3 name ; $4 options. With echo, prints the command.
+uninstall_one() {
+  pre=""; [ "$1" = echo ] && pre="echo"
+  case $2 in
+    brew)      $pre brew uninstall --formula "$3" ;;
+    cask)      $pre brew uninstall --cask "$3" ;;
+    tap)       $pre brew untap "$3" ;;
+    mas)       id=$(printf '%s' "$4" | sed -n 's/.*id: *\([0-9][0-9]*\).*/\1/p')
+               [ -n "$id" ] || { echo "   (mas $3: no id in options; uninstall by hand)"; return 1; }
+               $pre mas uninstall "$id" ;;
+    cargo)     $pre cargo uninstall "$3" ;;
+    uv)        $pre uv tool uninstall "$3" ;;
+    npm)       $pre npm uninstall -g "$3" ;;
+    krew)      $pre kubectl krew uninstall "$3" ;;
+    whalebrew) $pre whalebrew uninstall "$3" ;;
+    flatpak)   $pre flatpak uninstall -y "$3" ;;
+    *)         echo "   ($2 $3: no uninstaller; remove it by hand)"; return 1 ;;
+  esac
+}
+
+cmd_prune() {
+  yes=0; autoremove=0; pass=""
+  for a in "$@"; do
+    case $a in
+      --yes|-y) yes=1 ;;
+      --autoremove) autoremove=1 ;;
+      --from=*|--deps=*) pass="$pass $a" ;;
+      *) echo "rp prune: unknown option $a" >&2; exit 2 ;;
+    esac
+  done
+  need_db
+  plan=$(mktemp "${TMPDIR:-/tmp}/rp-plan.XXXXXX")
+  # shellcheck disable=SC2086
+  ( RP_PLAN="$plan"; export RP_PLAN; cmd_sync --dry-run $pass ) || { rm -f "$plan"; exit 1; }
+  if grep -q '^nodata' "$plan"; then
+    rm -f "$plan"
+    echo "rp prune: no dependency data, so I can't prove nothing needs these. Refusing." >&2; exit 1
+  fi
+  # uninstall order: apps and tools first, formulae next, taps last
+  go=$(awk -F '\t' '$1 == "go" { o = ($2 == "tap") ? 3 : ($2 == "brew") ? 2 : 1; print o "\t" $2 "\t" $3 "\t" $4 }' "$plan" | LC_ALL=C sort | cut -f2-)
+  skip=$(awk -F '\t' '$1 == "skip" { print "   " $2 " " $3 "  <- " $4 }' "$plan")
+  rm -f "$plan"
+  if [ -n "$skip" ]; then
+    echo "Keeping (retired, but still needed by something you keep):"
+    printf '%s\n' "$skip"
+  fi
+  if [ -z "$go" ]; then
+    echo "Nothing to prune: no retired item is installed here unless something still needs it."
+  else
+    echo "Retired, installed here, and nothing you keep needs them:"
+    printf '%s\n' "$go" | while IFS="$(printf '\t')" read -r t n o; do uninstall_one echo "$t" "$n" "$o" || :; done | sed 's/^/   /; s/^      (/   (/'
+  fi
+  [ "$autoremove" -eq 1 ] && echo "   brew autoremove   (orphaned dependencies)"
+  if [ "$yes" -eq 0 ]; then
+    [ -n "$go" ] || [ "$autoremove" -eq 1 ] && echo "Preview only. Run: rp prune --yes$( [ "$autoremove" -eq 1 ] && echo ' --autoremove')"
+    return 0
+  fi
+  failed=""
+  if [ -n "$go" ]; then
+    # two passes: a retired item another retired item depends on can only go second
+    for pass_no in 1 2; do
+      failed=""
+      todo=$go
+      go=$(printf '%s\n' "$todo" | while IFS="$(printf '\t')" read -r t n o; do
+        echo "-> $t $n" >&2
+        uninstall_one run "$t" "$n" "$o" >&2 || printf '%s\t%s\t%s\n' "$t" "$n" "$o"
+      done)
+      [ -z "$go" ] && break
+      [ "$pass_no" -eq 1 ] && echo "retrying $(printf '%s\n' "$go" | wc -l | tr -d ' ') failed item(s) once more" >&2
+    done
+    failed=$go
+  fi
+  [ "$autoremove" -eq 1 ] && { echo "-> brew autoremove"; brew autoremove || :; }
+  if [ -n "$failed" ]; then
+    echo "Could not remove (see errors above; mas may need sudo):"
+    printf '%s\n' "$failed" | cut -f1-2 | sed 's/^/   /; s/\t/ /'
+  fi
+  echo "Done. Run ./rp sync to refresh Brewfile-main and the catalog."
+  [ -z "$failed" ]
+}
+
+# ---- bootstrap --------------------------------------------------------------
+BREW_INSTALLER=https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+cmd_bootstrap() {
+  dry=0
+  for a in "$@"; do
+    case $a in
+      --dry-run) dry=1 ;;
+      *) echo "rp bootstrap: unknown option $a" >&2; exit 2 ;;
+    esac
+  done
+  [ "$(uname -s)" = Darwin ] || { echo "rp bootstrap: macOS only; package management is per-OS (REQ-20260928-017)" >&2; exit 1; }
+  find_brew() {
+    for b in "$(command -v brew 2>/dev/null || :)" /opt/homebrew/bin/brew /usr/local/bin/brew; do
+      [ -n "$b" ] && [ -x "$b" ] && { printf '%s\n' "$b"; return 0; }
+    done
+    return 1
+  }
+  if brew_bin=$(find_brew); then
+    echo "Homebrew found at $brew_bin. Updating to the latest Homebrew."
+    if [ "$dry" -eq 1 ]; then echo "   $brew_bin update"; else "$brew_bin" update; fi
+  else
+    echo "Installing Homebrew with the official installer."
+    echo "It will ask for your password and install the Xcode Command Line Tools if needed."
+    if [ "$dry" -eq 1 ]; then
+      echo "   /bin/bash -c \"\$(curl -fsSL $BREW_INSTALLER)\""
+      echo "(dry run: nothing installed)"; return 0
+    fi
+    /bin/bash -c "$(curl -fsSL "$BREW_INSTALLER")"
+    brew_bin=$(find_brew) || { echo "rp bootstrap: installer finished but brew was not found" >&2; exit 1; }
+  fi
+  [ "$dry" -eq 1 ] && { echo "(dry run: nothing changed)"; return 0; }
+  eval "$("$brew_bin" shellenv)"
+  "$brew_bin" --version | head -1
+  if ! grep -qs 'brew shellenv' "$HOME/.zprofile"; then
+    echo
+    echo "New shells won't find brew yet. Add this to ~/.zprofile (in chezmoi):"
+    echo "   eval \"\$($brew_bin shellenv)\""
+  fi
+  echo
+  echo "Next:"
+  echo "   brew bundle --file=\"$RP_DIR/Brewfile-base\""
+  echo "   $RP_DIR/rp create --for=dev,ai | brew bundle --file=-     # this Mac's purpose"
 }
 
 # ---- list / stats -----------------------------------------------------------
@@ -373,6 +522,8 @@ case $cmd in
   create) cmd_create "$@" ;;
   sync)   cmd_sync "$@" ;;
   deps)   cmd_sync --dry-run --verbose "$@" ;;
+  prune)  cmd_prune "$@" ;;
+  bootstrap) cmd_bootstrap "$@" ;;
   check)  cmd_check ;;
   list)   cmd_list "$@" ;;
   stats)  cmd_stats ;;
