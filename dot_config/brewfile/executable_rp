@@ -51,6 +51,8 @@ rp — manage macOS apps & utilities from one CSV (catalog.csv)
         Uninstall retired items that are installed here and that nothing you
         keep needs. Preview by default; --yes acts. Items still needed are
         listed and kept. --autoremove also runs `brew autoremove`.
+        Apps (cask, mas) are never uninstalled: they are listed for you to
+        remove with an app cleaner (then `brew uninstall --cask` for casks).
 
   rp bootstrap [--dry-run]
         New Mac, day zero: install Homebrew with the official installer, or
@@ -361,11 +363,8 @@ uninstall_one() {
   pre=""; [ "$1" = echo ] && pre="echo"
   case $2 in
     brew)      $pre brew uninstall --formula "$3" ;;
-    cask)      $pre brew uninstall --cask "$3" ;;
     tap)       $pre brew untap "$3" ;;
-    mas)       id=$(printf '%s' "$4" | sed -n 's/.*id: *\([0-9][0-9]*\).*/\1/p')
-               [ -n "$id" ] || { echo "   (mas $3: no id in options; uninstall by hand)"; return 1; }
-               $pre mas uninstall "$id" ;;
+    cask|mas)  echo "($2 $3: apps are yours to remove with an app cleaner; rp never uninstalls them)"; return 1 ;;
     cargo)     $pre cargo uninstall "$3" ;;
     uv)        $pre uv tool uninstall "$3" ;;
     npm)       $pre npm uninstall -g "$3" ;;
@@ -394,19 +393,29 @@ cmd_prune() {
     rm -f "$plan"
     echo "rp prune: no dependency data, so I can't prove nothing needs these. Refusing." >&2; exit 1
   fi
-  # uninstall order: apps and tools first, formulae next, taps last
-  go=$(awk -F '\t' '$1 == "go" { o = ($2 == "tap") ? 3 : ($2 == "brew") ? 2 : 1; print o "\t" $2 "\t" $3 "\t" $4 }' "$plan" | LC_ALL=C sort | cut -f2-)
+  # Apps (cask, mas) are never uninstalled by rp: Rob removes them with an app
+  # cleaner first to catch remnants (REQ-20260929-021, OQ-17). Everything else:
+  # tools first, formulae next, taps last.
+  go=$(awk -F '\t' '$1 == "go" && $2 != "cask" && $2 != "mas" { o = ($2 == "tap") ? 3 : ($2 == "brew") ? 2 : 1; print o "\t" $2 "\t" $3 "\t" $4 }' "$plan" | LC_ALL=C sort | cut -f2-)
+  apps=$(awk -F '\t' '$1 == "go" && ($2 == "cask" || $2 == "mas") {
+      if ($2 == "cask") printf "0\t   cask  %-28s then: brew uninstall --cask %s\n", $3, $3
+      else { id = $4; sub(/.*id: */, "", id); sub(/[^0-9].*/, "", id); printf "1\t   mas   %-28s (App Store id %s)\n", $3, id }
+    }' "$plan" | LC_ALL=C sort | cut -f2-)
   skip=$(awk -F '\t' '$1 == "skip" { print "   " $2 " " $3 "  <- " $4 }' "$plan")
   rm -f "$plan"
   if [ -n "$skip" ]; then
     echo "Keeping (retired, but still needed by something you keep):"
     printf '%s\n' "$skip"
   fi
-  if [ -z "$go" ]; then
+  if [ -n "$apps" ]; then
+    echo "Apps to remove yourself (app cleaner first; rp never uninstalls apps):"
+    printf '%s\n' "$apps"
+  fi
+  if [ -z "$go" ] && [ -z "$apps" ]; then
     echo "Nothing to prune: no retired item is installed here unless something still needs it."
-  else
+  elif [ -n "$go" ]; then
     echo "Retired, installed here, and nothing you keep needs them:"
-    printf '%s\n' "$go" | while IFS="$(printf '\t')" read -r t n o; do uninstall_one echo "$t" "$n" "$o" || :; done | sed 's/^/   /; s/^      (/   (/'
+    printf '%s\n' "$go" | while IFS="$(printf '\t')" read -r t n o; do uninstall_one echo "$t" "$n" "$o" || :; done | sed 's/^/   /'
   fi
   [ "$autoremove" -eq 1 ] && echo "   brew autoremove   (orphaned dependencies)"
   if [ "$yes" -eq 0 ]; then
@@ -430,7 +439,7 @@ cmd_prune() {
   fi
   [ "$autoremove" -eq 1 ] && { echo "-> brew autoremove"; brew autoremove || :; }
   if [ -n "$failed" ]; then
-    echo "Could not remove (see errors above; mas may need sudo):"
+    echo "Could not remove (see errors above):"
     printf '%s\n' "$failed" | cut -f1-2 | sed 's/^/   /; s/\t/ /'
   fi
   echo "Done. Run ./rp sync to refresh Brewfile-main and the catalog."

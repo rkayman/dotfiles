@@ -92,6 +92,7 @@ Superseded by REQ-20260928-017.
 
 ### REQ-20260926-015 — Chezmoi drives installs ⏸ Postponed
 A chezmoi `run_onchange_` script regenerates and applies the machine's Brewfile(s) whenever `catalog.csv` changes. When picked up, also add this folder to `.chezmoiignore` on non-macOS hosts.
+- *Also postponed 2026-09-29 (OQ-18):* a chezmoi `run_once_` script that calls `rp bootstrap` on a new Mac. Not ready to automate that much of machine setup.
 
 ### REQ-20260926-016 — Deterministic output 🔵
 Generated Brewfiles contain no timestamp or hostname, so an unchanged catalog produces a byte-identical file and chezmoi sees no churn.
@@ -124,7 +125,8 @@ Every live `rp sync` rewrites `Brewfile-main` with that Mac's dump (minus vscode
 - Retired items still needed are listed as kept, with what needs them.
 - Preview by default; `--yes` acts. `--autoremove` adds `brew autoremove` for orphaned dependencies.
 - Order: apps and tools, then formulae, then taps. Failures don't stop the run; failed items get one retry (a retired item another retired item depends on can only go second), then are listed. Exit code 1 if anything is left.
-- Uninstallers: `brew uninstall --formula|--cask`, `brew untap`, `mas uninstall <id>`, `cargo uninstall`, `uv tool uninstall`, `npm uninstall -g`, `kubectl krew uninstall`, `whalebrew uninstall`. `go` has none, so it's listed for manual removal.
+- Uninstallers: `brew uninstall --formula`, `brew untap`, `cargo uninstall`, `uv tool uninstall`, `npm uninstall -g`, `kubectl krew uninstall`, `whalebrew uninstall`. `go` has none, so it's listed for manual removal.
+- **Apps are never uninstalled** *(amended 2026-09-29, OQ-17)*: retired `cask` and `mas` items are listed under "Apps to remove yourself", so an app cleaner (AppCleaner, mole …) can catch remnants first. Casks show the follow-up `brew uninstall --cask <name>`; mas apps show their App Store id. Listing apps is not a failure (exit 0).
 - Refuses to run with no dependency data: it can't prove nothing needs an item.
 - Never uses `--ignore-dependencies` or `sudo`: if Homebrew says something else still needs an item, that wins.
 
@@ -158,12 +160,12 @@ Every live `rp sync` rewrites `Brewfile-main` with that Mac's dump (minus vscode
 | OQ-15 prune | Yes → REQ-021 *(09-29)* |
 | OQ-16 lib marker | `type=brew`, `use=lib` → REQ-012 amended *(09-29)*. Cause of the earlier flip-back unknown; not the CSV tool, not `rp`. |
 
+| OQ-17 mas/cask uninstall | Never uninstall apps; list them for the app cleaner → REQ-021 amended *(09-29)* |
+| OQ-18 chezmoi calls `rp bootstrap` | Postponed → REQ-015 *(09-29)* |
+
 ## Open questions
 
-| # | Question | Why it matters |
-|---|---|---|
-| OQ-17 | `mas uninstall` may need `sudo` on current `mas` versions (unverified). `rp prune` never escalates; a failed mas uninstall is listed for you. OK, or should prune print the `sudo` command? | Friction vs. a tool that asks for root. |
-| OQ-18 | Day zero needs chezmoi before `rp` exists. chezmoi's own installer doesn't need Homebrew, so the order works. Should a chezmoi `run_once_` script call `rp bootstrap`? (Folds into postponed REQ-015.) | Makes a new Mac a single command end to end. |
+None open. Postponed work lives in REQ-015.
 
 ---
 
@@ -233,3 +235,5 @@ Every live `rp sync` rewrites `Brewfile-main` with that Mac's dump (minus vscode
 | 43 | Graph parser tested on `name:`, `name: ` (empty lists, 169 lines) and a 400-dependency line: result identical to Rob's real `needed_by`. | ✅ |
 | 44 | Regression: gawk, mawk, busybox × dash, bash give identical `create` and `check` output. Migration changes no generated output. `Brewfile-base` regenerated: 108 entries (catalog edits since 09-28). | ✅ |
 | 45 | Checked Homebrew's installer URL (Homebrew/install README), `uninstall --formula/--cask`, `autoremove`, `untap` and `update` against current docs. brew.sh and docs.brew.sh timed out; used the GitHub README and the cached manpage. | 🟡 |
+| 46 | OQ-17: `rp prune` no longer uninstalls `cask` or `mas`. It lists them as "Apps to remove yourself", with the `brew uninstall --cask` follow-up or the App Store id. `uninstall_one` refuses both types as a second guard. Formulae unchanged. Tested with fakes: preview and `--yes` never call `brew uninstall --cask` or `mas`; apps-only prune exits 0 with zero commands run; identical output across 3 awks × 2 shells; catalog untouched. | ✅ |
+| 47 | OQ-18 postponed into REQ-015. No open questions remain. | ✅ |
