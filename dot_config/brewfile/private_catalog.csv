@@ -132,6 +132,7 @@ brew,snyk-agent-scan,base,keep,"Constrain, log and scan your MCP connections for
 brew,starship,base,keep,Cross-shell prompt for astronauts,,
 brew,subliminal,media,keep,Library to search and download subtitles,,
 brew,subversion,dev,keep,Version control system designed to be a better CVS,,
+brew,superfile,base,keep,Modern and pretty fancy file manager for the terminal,,
 brew,svt-av1,lib,ignore,AV1 encoder,,auto-editor ffmpeg-full
 brew,taproom,base,keep,Interactive TUI for Homebrew,,
 brew,taskline,base,keep,"Tasks, boards & notes for the command-line habitat",,
@@ -207,6 +208,7 @@ cask,nikitabobko/tap/aerospace,base,keep,AeroSpace is an i3-like tiling window m
 cask,obs,media,keep,Open-source software for live streaming and screen recording,,
 cask,obsidian,misc,keep,Knowledge base that works on top of a local folder of plain text Markdown files,,
 cask,openhuman,ai,keep,Personal AI assistant with local memory and integrations,,
+cask,openusage,ai,keep,"AI usage tracker for Cursor, Claude Code, Codex, Copilot and more",,
 cask,paper-design,dev,keep,Design tool for creating interfaces and prototypes,,
 cask,peninsula,misc,retire,Notch app for window management,,
 cask,phantomjs,dev,retire,Headless scriptable WebKit (discontinued),,
