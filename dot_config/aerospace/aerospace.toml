@@ -100,7 +100,8 @@ on-window-detected = [
         if = '''
         test %{app-bundle-id} = com.openai.chat \
         || test %{app-bundle-id} = com.openai.codex \
-        || test %{app-bundle-id} = com.anthropic.claudefordesktop
+        || test %{app-bundle-id} = com.anthropic.claudefordesktop \
+        || test %{app-bundle-id} = com.apple.campo
         ''',
         run = ['layout accordion', 'move-node-to-workspace A'],
     },

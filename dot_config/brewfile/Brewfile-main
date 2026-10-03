@@ -394,8 +394,6 @@ cask "quicklook-json"
 cask "quicklook-video"
 # Disk space analyzer
 cask "radix"
-# 7-Zip derivative GUI
-cask "shichizip"
 # Screenshot measurement and annotation tool
 cask "shottr"
 # CSV editor
@@ -422,6 +420,8 @@ cask "tla+-toolbox"
 cask "transmission"
 # Speech-to-text and AI text processing
 cask "typewhisper/tap/typewhisper"
+# Menu bar toolkit with keep-awake, system monitor and volume mixer
+cask "vorssaint"
 # Native desktop client for WhatsApp
 cask "whatsapp"
 # Network protocol analyzer
@@ -436,7 +436,6 @@ cask "zentty"
 cask "zoom"
 mas "Acorn", id: 6737921844
 mas "Actions", id: 1586435171
-mas "Amphetamine", id: 937984704
 mas "Apple Configurator", id: 1037126344
 mas "Base", id: 402383384
 mas "Bookmarks", id: 1503569422
@@ -464,6 +463,7 @@ mas "Keynote", id: 361285480
 mas "Kindle", id: 302584613
 mas "Leaf", id: 576338668
 mas "Litterbox", id: 6805719216
+mas "MacPackerStore", id: 6473273874
 mas "Magnet", id: 441258766
 mas "Markgram", id: 6754908716
 mas "Microsoft OneNote", id: 784801555
