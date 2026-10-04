@@ -4,6 +4,7 @@ tap "dmmulroy/tap"
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 tap "finestructure/tap", trusted: true
 tap "galaxy-io/tap", trusted: true
+tap "lab421/tap", trusted: true
 tap "nats-io/nats-tools", trusted: true
 tap "nikitabobko/tap"
 tap "raine/aven"
@@ -308,6 +309,8 @@ cask "caskhub"
 cask "chatgpt"
 # OpenAI's previous ChatGPT desktop app
 cask "chatgpt-classic"
+# Image, video and clipboard optimiser
+cask "clop"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
 # Menu bar display manager: DDC brightness, HiDPI, presets, virtual displays
@@ -336,6 +339,8 @@ cask "font-sauce-code-pro-nerd-font"
 cask "font-source-code-pro"
 cask "font-source-sans-3"
 cask "font-source-serif-4"
+# File-automation app that watches folders and runs rules
+cask "lab421/tap/forel"
 # Speech-to-text and meeting transcription tool
 cask "ghostpepper"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -362,6 +367,8 @@ cask "iina"
 cask "macfuse"
 # Full TeX Live distribution with GUI applications
 cask "mactex"
+# Tool to create bootable USB installers
+cask "macusb"
 # Markdown previewer with bundled Quick Look extension
 cask "markdown-preview"
 # Markdown editor

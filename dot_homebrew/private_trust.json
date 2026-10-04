@@ -5,6 +5,7 @@
     "felixkratz/formulae",
     "finestructure/tap",
     "galaxy-io/tap",
+    "lab421/tap",
     "nats-io/nats-tools",
     "typewhisper/tap"
   ],
