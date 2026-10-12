@@ -19,6 +19,8 @@ brew "agent-manager"
 brew "aria2"
 # Print a list of paths as a tree of paths
 brew "as-tree"
+# Effort free video editing!
+brew "auto-editor"
 # Azure Storage data transfer utility
 brew "azcopy"
 # Developer CLI that provides commands for working with Azure resources
@@ -35,6 +37,8 @@ brew "bagel"
 brew "bat"
 # Bash scripts that integrate bat with various command-line tools
 brew "bat-extras"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
 # CLI tool for datetime arithmetic, parsing, formatting and more
@@ -45,6 +49,8 @@ brew "caddy"
 brew "carl"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Browse, inspect, and launch movie torrents directly from your terminal
+brew "cinecli"
 # Copy files from your terminal that actually paste into GUI apps
 brew "clippy"
 # ACP server that exposes Codex CLI functionality for ACP-compatible clients
@@ -53,8 +59,6 @@ brew "codex-acp"
 brew "colima"
 # Create and run Linux containers using lightweight virtual machines
 brew "container"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.14"
 # Terminal-based dashboard for managing cron jobs locally and on servers
 brew "cronboard"
 # Scans binaries and SBOMs for known vulnerabilities and prepares reports
@@ -189,8 +193,12 @@ brew "snitch"
 brew "snyk-agent-scan"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Library to search and download subtitles
+brew "subliminal"
 # Version control system designed to be a better CVS
 brew "subversion"
+# Modern and pretty fancy file manager for the terminal
+brew "superfile"
 # Interactive TUI for Homebrew
 brew "taproom"
 # Tasks, boards & notes for the command-line habitat
@@ -201,6 +209,8 @@ brew "television"
 brew "termaid"
 # Domain Availability Research Tool
 brew "tldx"
+# Find and download torrents without leaving your CLI
+brew "torrra"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Manage worktrees without managing worktrees
@@ -257,6 +267,8 @@ cask "caskhub"
 cask "chatgpt"
 # OpenAI's previous ChatGPT desktop app
 cask "chatgpt-classic"
+# Image, video and clipboard optimiser
+cask "clop"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
 # Menu bar display manager: DDC brightness, HiDPI, presets, virtual displays
@@ -285,6 +297,8 @@ cask "font-sauce-code-pro-nerd-font"
 cask "font-source-code-pro"
 cask "font-source-sans-3"
 cask "font-source-serif-4"
+# File-automation app that watches folders and runs rules
+cask "lab421/tap/forel", trusted: true
 # Speech-to-text and meeting transcription tool
 cask "ghostpepper"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -297,12 +311,18 @@ cask "github"
 cask "gitkraken-cli"
 # Client for the Google Drive storage service
 cask "google-drive"
+# Pre-call check for camera, microphone, speaker, and network quality
+cask "greensignal"
+# Open-source video transcoder
+cask "handbrake-app"
 # Hex editor focussing on speed
 cask "hex-fiend"
 # Homebrew's official GUI
 cask "homebrew-app"
 # Free and open-source media player
 cask "iina"
+# Spot and merge differences in text and image files or folders
+cask "kaleidoscope"
 # File system integration
 cask "macfuse"
 # Full TeX Live distribution with GUI applications
@@ -313,12 +333,16 @@ cask "macusb"
 cask "markdown-preview"
 # Markdown editor
 cask "meridiem"
+# Native app email client for Gmail
+cask "mimestream"
 # Run AI models locally
 cask "nativ"
 # Developer IDE or Management Environment for Neo4j instances
 cask "neo4j-desktop"
 # Read-only disk space visualiser
 cask "neodisk"
+# Open-source software for live streaming and screen recording
+cask "obs"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Personal AI assistant with local memory and integrations
@@ -353,12 +377,18 @@ cask "syncthing-app"
 cask "taskpaper"
 # Terminal-based web browser
 cask "terminal-browser"
+# Teleprompter that highlights scripts in real time as you speak
+cask "textream"
 # WYSIWYG editor for TikZ diagrams in LaTeX
 cask "tikz-editor"
 # IDE for TLA+
 cask "tla+-toolbox"
+# Open-source BitTorrent client
+cask "transmission"
 # Speech-to-text and AI text processing
 cask "typewhisper/tap/typewhisper", trusted: true
+# Menu bar toolkit with keep-awake, system monitor and volume mixer
+cask "vorssaint"
 # Native desktop client for WhatsApp
 cask "whatsapp"
 # Network protocol analyzer
@@ -371,29 +401,39 @@ cask "zed"
 cask "zentty"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Acorn", id: 6737921844
 mas "Actions", id: 1586435171
 mas "Apple Configurator", id: 1037126344
-mas "Base 2", id: 6744867438
+mas "Base", id: 6744867438
 mas "Bookmarks", id: 1503569422
 mas "Clocker", id: 1056643111
 mas "Code Peek+", id: 6760186407
 mas "Dash for AWS", id: 1425682801
 mas "Dashlane", id: 517914548
 mas "Developer", id: 640199958
+mas "Filters for Photos", id: 1083965373
 mas "Folder Quick Look", id: 6753110395
+mas "GarageBand", id: 682658836
 mas "Grammarly for Safari", id: 1462114288
 mas "Hotspot Shield", id: 771076721
 mas "HP", id: 1474276998
 mas "Hyperspace", id: 6739505345
 mas "Ice Cubes", id: 6444915884
+mas "iMovie", id: 408981434
+mas "Infltr", id: 935623257
+mas "Infuse", id: 1136220934
 mas "Instapaper", id: 288545208
 mas "Keynote", id: 361285480
+mas "Kindle", id: 302584613
 mas "Leaf", id: 576338668
 mas "Litterbox", id: 6805719216
+mas "MacPackerStore", id: 6473273874
 mas "Magnet", id: 441258766
 mas "Markgram", id: 6754908716
 mas "Microsoft OneNote", id: 784801555
+mas "Mimeo Photos", id: 1282504627
 mas "MindNode Classic", id: 1289197285
+mas "Motif", id: 1404636482
 mas "Noir", id: 1592917505
 mas "Numbers", id: 361304891
 mas "Obsidian Web Clipper", id: 6720708363
@@ -402,7 +442,11 @@ mas "Overlap", id: 1516950324
 mas "Pages", id: 361309726
 mas "Patterns", id: 429449079
 mas "PCalc", id: 403504866
+mas "Pixelmator Pro", id: 1289583905
 mas "Play", id: 1596506190
+mas "Prime Video", id: 545519333
+mas "RasterFox", id: 6749489566
+mas "Shazam", id: 897118787
 mas "Slack", id: 803453959
 mas "Speediness", id: 1596706466
 mas "Speedtest", id: 1153157709
@@ -412,6 +456,7 @@ mas "Swift Playground", id: 1496833156
 mas "TestFlight", id: 899247664
 mas "Transporter", id: 1450874784
 mas "Vinegar", id: 1591303229
+mas "VOX", id: 461369673
 mas "Windows App", id: 1295203466
 mas "Wipr", id: 1662217862
 mas "XCFormat", id: 1165321484
