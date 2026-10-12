@@ -10,10 +10,12 @@
     "typewhisper/tap"
   ],
   "trustedcasks": [
-    "nikitabobko/tap/aerospace"
+    "nikitabobko/tap/aerospace",
+    "typewhisper/tap/typewhisper"
   ],
   "trustedformulae": [
     "dmmulroy/tap/jj-starship",
+    "galaxy-io/tap/gnat",
     "raine/aven/aven"
   ]
 }
