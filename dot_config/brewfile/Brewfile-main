@@ -37,8 +37,6 @@ brew "bagel"
 brew "bat"
 # Bash scripts that integrate bat with various command-line tools
 brew "bat-extras"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.14"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
 # CLI tool for datetime arithmetic, parsing, formatting and more
@@ -59,6 +57,8 @@ brew "codex-acp"
 brew "colima"
 # Create and run Linux containers using lightweight virtual machines
 brew "container"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
 # Terminal-based dashboard for managing cron jobs locally and on servers
 brew "cronboard"
 # Scans binaries and SBOMs for known vulnerabilities and prepares reports
@@ -267,6 +267,8 @@ cask "caskhub"
 cask "chatgpt"
 # OpenAI's previous ChatGPT desktop app
 cask "chatgpt-classic"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # Image, video and clipboard optimiser
 cask "clop"
 # OpenAI's coding agent that runs in your terminal
