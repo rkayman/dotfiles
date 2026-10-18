@@ -6,6 +6,47 @@
 // each plugin that declares `FreshPluginRegistry` here
 // contributes its augmentation.
 
+// ── agent_sessions ─────────────────────
+/**
+* Agent Sessions hub. Opens a machine, runs every registered scanner against
+* it, and merges and correlates what they return. Each tool's on-disk format
+* lives in its own scanner plugin, registered through `registerScanner`.
+*
+* A scanner only asks the machine handle questions. It never reads a path
+* itself and does not know whether the machine is local or remote.
+*/
+import type { AgentSessionsApi } from "./lib/agent_scanner.ts";
+declare global {
+	interface FreshPluginRegistry {
+		"agent-sessions": AgentSessionsApi;
+	}
+}
+
+// ── agent_sessions_claude_code ─────────────────────
+import { encodeProjectDir } from "./lib/claude_code_format.ts";
+export { encodeProjectDir };
+
+// ── agent_sessions_codex ─────────────────────
+/**
+* Codex CLI and ChatGPT (Codex) scanners for the agent-sessions hub.
+*
+* Store: `$CODEX_HOME/sessions/YYYY/MM/DD/rollout-<timestamp>-<uuid>.jsonl`,
+* with `CODEX_HOME` defaulting to `~/.codex`. The first record is an envelope:
+* `{"type":"session_meta","payload":{"id":…,"cwd":…}}`, so the cwd is under `payload`.
+*
+* The ChatGPT desktop app's Codex shares the same store. Each transcript's
+* `session_meta` names the app that wrote it (`originator`), so the store is
+* read once and every conversation is listed once, under the app it came
+* from. Both resume with the `codex` CLI.
+*/
+import { type Evidence } from "./lib/agent_scanner.ts";
+/** `$CODEX_HOME`, or `~/.codex`. */
+declare function codexHome(machine: FreshMachine, problems: string[]): Promise<{
+	home: string;
+	evidence: Evidence[];
+}>;
+export { codexHome };
+
 // ── dashboard ─────────────────────
 export type DashboardColor = "muted" | "accent" | "value" | "number" | "ok" | "warn" | "err" | "branch";
 export type DashboardTextOpts = {
@@ -144,6 +185,12 @@ export interface SearchOpts {
 	*  `-F`, git-grep/grep `-F`). Custom providers should honour this so
 	*  the query is interpreted consistently with the toolbar toggle. */
 	regex?: boolean;
+	/** When true, match upper and lower case exactly; when false (the
+	*  default) fold case. Providers must decide this *explicitly* — a
+	*  smart-case flag left on would quietly re-derive it from the query
+	*  and disagree with the Case toggle on the toolbar. Built-ins pass
+	*  rg `--case-sensitive`/`--ignore-case`, git-grep/grep/ack `-i`. */
+	caseSensitive?: boolean;
 }
 /** A registered Live Grep backend. */
 export interface LiveGrepProvider {
@@ -190,13 +237,106 @@ declare global {
 }
 export {};
 
+// ── live_sessions ─────────────────────
+/**
+* Keeps the orchestrator dock's "External sessions" group current: Claude and Codex
+* sessions open outside this editor's workspaces — another terminal, a
+* background job, the vendor's cloud. Polls each tool's own listing while the
+* dock is open and hands the result to the orchestrator
+* (`setExternalSessions`), which draws the rows and opens them.
+*
+* A separate plugin rather than part of the orchestrator so the sources can be
+* turned off by not loading it, and so the orchestrator's own tests, which load
+* only the orchestrator, never see this machine's real sessions.
+*
+* Parsing and "what opening a row means" live in `lib/live_sessions.ts`.
+*/
+import { type LiveSession, type LiveSource } from "./lib/live_sessions.ts";
+export interface LiveSessionsApi {
+	/** Re-list now, cloud included. Resolves once the dock has the answer. */
+	refresh(): Promise<void>;
+	/** The last answer, for a dock opened after it was pushed. */
+	snapshot(): {
+		sessions: LiveSession[];
+		problems: string[];
+		/** The same problems, by the source that had them. */
+		problemsBySource: Partial<Record<LiveSource, string>>;
+		commands: {
+			claude: string;
+			codex: string;
+		};
+	};
+	/** Whether the Claude cloud source is on. */
+	claudeCloudEnabled(): boolean;
+	/** Turn it on or off: saved to the user's config (as the Settings UI
+	*  would), then re-listed, so the dock's Menu can own the setting. */
+	setClaudeCloud(on: boolean): Promise<void>;
+}
+declare global {
+	interface FreshPluginRegistry {
+		"live-sessions": LiveSessionsApi;
+	}
+}
+
 // ── orchestrator ─────────────────────
-export type AgentLaunchResult = {
+import { type DiscoveryHost } from "./lib/discovery.ts";
+import { type LiveSession } from "./lib/live_sessions.ts";
+type AgentState = "working" | "blocked" | "done" | "idle" | "unknown";
+interface ExternalUpdate {
+	sessions: LiveSession[];
+	problems: string[];
+	problemsBySource?: Partial<Record<LiveSession["source"], string>>;
+	commands?: {
+		claude?: string;
+		codex?: string;
+	};
+}
+interface StateExplanation {
+	state: AgentState;
+	reasons: string[];
+	question: string | null;
+	rule: string | null;
+	outputAgeMs: number | null;
+	osc: boolean | null;
+	unseenWork: boolean;
+	recentLines: string[];
+	rules: {
+		version: number;
+		source: string;
+	};
+}
+export type WorkspaceIds = {
 	workspaceId: string;
 	windowId: number;
 	root: string;
 };
+export type AgentLaunchResult = WorkspaceIds & {
+	/** The launched command resolved to this agent (`"terminal"` for a bare
+	*  shell, `"unknown"` for a command the registry does not know). */
+	agent: string;
+	/** `true` once the launch was seen to come up: its terminal produced
+	*  output within `readyTimeoutMs`. `false` with `error` set when it exited
+	*  first or stayed silent; also `false`, without an error, when the caller
+	*  passed `wait: false`. */
+	ready: boolean;
+	/** The workspace's agent state at return. */
+	state: AgentState;
+	error?: string;
+};
+export type WaitResult = {
+	workspaceId: string;
+	windowId: number;
+	state: AgentState;
+	elapsedMs: number;
+	timedOut: boolean;
+};
 export type RunAgentOptions = {
+	/** Wait for the launch to come up before returning (default `true`): the
+	*  terminal has to produce output within `readyTimeoutMs`, and an exit
+	*  before that is reported as an error. */
+	wait?: boolean;
+	/** How long `wait` allows, in ms (default 15000). */
+	readyTimeoutMs?: number;
 	/** Agent command line, e.g. `claude` or `claude --model opus`. A bare
 	*  terminal when empty or omitted. */
 	agent?: string;
@@ -286,8 +426,8 @@ export type WorkspaceSummary = {
 	projectPath: string;
 	/** Checked-out branch, when known. */
 	branch?: string;
-	/** Whether the agent in this workspace is producing output right now. */
-	agentState: "working" | "idle";
+	/** Coarse agent activity: working, blocked (waiting on the user), done (unseen finished work), idle, or unknown. */
+	agentState: AgentState;
 	/** Terminal tab title — in practice the agent's command line, since the
 	*  launcher titles the tab with it. Empty when the pane has no title. */
 	title: string;
@@ -350,9 +490,16 @@ export type DockFilterOptions = {
 	*  instead, so this only shows up when the picker is open. */
 	scope?: "current" | "all";
 };
-export type OrchestratorApi = {
+export type OrchestratorApi = DiscoveryHost & {
+	/** Replace the dock's external sessions group: Claude/Codex sessions open outside
+	*  this editor, as `live_sessions.ts` lists them. `commands` are the CLI
+	*  programs it ran, so opening a row attaches with the same ones. */
+	setExternalSessions(update: ExternalUpdate): void;
 	/** Launch a coding agent in THIS workspace — the headless twin of the
-	*  "Run Agent…" dialog. Resolves once the agent's terminal is up. */
+	*  "Run Agent…" dialog. By default resolves once the launch has been seen
+	*  to come up (its terminal produced output within `readyTimeoutMs`);
+	*  `ready: false` with `error` when it exited first or stayed silent, so
+	*  a caller never mistakes a dead terminal for a running agent. */
 	runAgent(options?: RunAgentOptions): Promise<AgentLaunchResult>;
 	/** Create a workspace and launch a coding agent in it — the headless twin
 	*  of the "New Workspace" dialog, including its backend switch.
@@ -367,11 +514,28 @@ export type OrchestratorApi = {
 	*  dock to watch, the durable workspace id does not exist until the window is
 	*  born, and waiting is what lets a failed create reject rather than
 	*  silently do nothing. */
-	newWorkspace(options?: NewWorkspaceOptions): Promise<AgentLaunchResult>;
+	newWorkspace(options?: NewWorkspaceOptions): Promise<WorkspaceIds>;
 	/** Every workspace the dock is tracking, in dock order — what a caller
 	*  needs to find the one it made earlier, or to report on all of them.
 	*  Reads the live model, so it reflects creations made moments ago. */
 	listWorkspaces(): WorkspaceSummary[];
+	/** One workspace — by `workspaceId`, `windowId` (or its decimal string),
+	*  or dock name — with the decision chain behind its `agentState`
+	*  (`explain`: reasons, the question line and rule that matched, output
+	*  age, the rule set in force). `null` when there is no such workspace. */
+	getWorkspace(target: string | number): (WorkspaceSummary & {
+		explain: StateExplanation;
+	}) | null;
+	/** Block until the workspace's agent state is one of `until` (default:
+	*  anything but `working`), polling every `pollMs` (250). Resolves with
+	*  `timedOut: true` after `timeoutMs` (default 5 minutes; 0 = no limit).
+	*  Throws for an unknown workspace. The synchronisation primitive a lead
+	*  agent needs to dispatch work and collect it. */
+	waitForState(target: string | number, options?: {
+		until?: AgentState | AgentState[];
+		timeoutMs?: number;
+		pollMs?: number;
+	}): Promise<WaitResult>;
 	/** Focus a workspace by its durable `workspaceId` (or its `windowId`) —
 	*  what `listWorkspaces()` reports.
 	*
@@ -454,6 +618,7 @@ declare global {
 		orchestrator: OrchestratorApi;
 	}
 }
+export {};
 
 // ── vi_mode ─────────────────────
 export type ViModeApi = {
