@@ -7,6 +7,7 @@ tap "galaxy-io/tap", trusted: true
 tap "lab421/tap", trusted: true
 tap "nats-io/nats-tools", trusted: true
 tap "nikitabobko/tap"
+tap "olaproeis/ferrite", trusted: true
 tap "raine/aven"
 tap "typewhisper/tap", trusted: true
 # Architectural Decision Record tool in Rust
@@ -283,6 +284,8 @@ cask "davit"
 cask "dotnet-sdk"
 # Excalidraw client
 cask "excalidrawz"
+# Cross-platform markdown editor built in Rust
+cask "olaproeis/ferrite/ferrite"
 # Offline voice-to-text dictation app with AI enhancement
 cask "fluidvoice"
 cask "font-awesome-terminal-fonts"
