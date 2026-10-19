@@ -270,6 +270,8 @@ cask "caskhub"
 cask "chatgpt"
 # OpenAI's previous ChatGPT desktop app
 cask "chatgpt-classic"
+# Anthropic's official Claude AI desktop app
+cask "claude"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # Image, video and clipboard optimiser
