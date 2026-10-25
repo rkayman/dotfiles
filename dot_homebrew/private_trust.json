@@ -7,10 +7,10 @@
     "galaxy-io/tap",
     "lab421/tap",
     "nats-io/nats-tools",
-    "olaproeis/ferrite",
     "typewhisper/tap"
   ],
   "trustedcasks": [
+    "galaxy-io/tap/gnat",
     "nikitabobko/tap/aerospace"
   ],
   "trustedformulae": [
