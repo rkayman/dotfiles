@@ -12,6 +12,13 @@
       "preferred_line_length": 120
     }
   },
+  "lsp": {
+    "fsautocomplete": {
+      "settings": {
+        "fsac_custom_args": ["--use-fcs-transparent-compiler"]
+      }
+    }
+  },
   "project_panel": {
     "dock": "right"
   },

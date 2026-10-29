@@ -1020,7 +1020,7 @@ type ActionSpec = {
 	* macro — which contains `InsertChar` and other payload actions —
 	* round-trip losslessly through `executeActions`.
 	*/
-	args: Record<string, unknown>;
+	args?: Record<string, unknown>;
 };
 /**
 * Action button for action popups
@@ -2936,6 +2936,24 @@ type ReplaceResult = {
 	*/
 	bufferId: number;
 };
+/**
+* Result of creating a buffer group
+*/
+type BufferGroupResult = {
+	/**
+	* The group ID
+	*/
+	groupId: number;
+	/**
+	* Panel buffer IDs, keyed by panel name
+	*/
+	panels: Record<string, number>;
+	/**
+	* Panel split IDs, keyed by panel name: what `createScrollSyncGroup`,
+	* `setLineWrap` and `setLayoutHints` take to act on one panel.
+	*/
+	panelSplits: Record<string, number>;
+};
 type AuthorityPath = {
 	kind: "authority";
 	value: string;
@@ -3627,13 +3645,23 @@ interface FreshConfig {
 	*/
 	self_update?: boolean;
 	/**
-	* When on (default), `fresh` with no arguments reattaches to a single background
-	* editor with the workspace dock and your last workspace. When off, it opens a
-	* plain editor in the current directory; runs with files or flags are unaffected.
+	* When on (default), `fresh` with no arguments is `fresh -a`: it runs in a single
+	* background editor that outlives the terminal, and every later bare `fresh`
+	* reattaches to it. When off, it opens a plain editor in this terminal. Runs with
+	* files or flags are unaffected. Formerly `orchestrator_mode`.
 	*
 	* Default: `true`
 	*/
-	orchestrator_mode?: boolean;
+	auto_attach?: boolean;
+	/**
+	* When on, `fresh` with no arguments reopens the workspace you used last,
+	* wherever you type it. When off (default), it opens the current directory.
+	* Works with Auto Attach on or off; runs with files or flags are
+	* unaffected.
+	*
+	* Default: `false`
+	*/
+	open_last_workspace?: boolean;
 	/**
 	* Editor behavior settings (indentation, line numbers, wrapping, etc.)
 	*/
@@ -4247,8 +4275,9 @@ interface EditorConfig {
 		*/
 		restore_previous_session?: boolean;
 		/**
-		* When started with files (e.g. `fresh main.rs`), open only those files
-		* instead of the last session. Unsaved changes are still restored. Default: true
+		* When started with files (e.g. `fresh main.rs`, or as git's editor), open only
+		* those files: the session is neither restored nor saved, no dock opens, and only
+		* those files' unsaved changes come back. Off makes it a full session. Default: true
 		*
 		* Default: `true`
 		*/
@@ -4440,7 +4469,10 @@ interface FileExplorerConfig {
 		*/
 		show_gitignored?: boolean;
 		/**
-		* Extra patterns to ignore, on top of `.gitignore`.
+		* Extra patterns to ignore, on top of `.gitignore`, written as
+		* `.gitignore` lines relative to the project root (`build/`, `/dist`,
+		* `*.log`, `!keep.log`). The file explorer, Quick Open, project search
+		* and Live Grep all leave out what they match.
 		*/
 		custom_ignore_patterns?: string[];
 		/**
@@ -5027,6 +5059,14 @@ interface TerminalConfig {
 		* Default: `"requested"`
 		*/
 		mouse_forwarding?: TerminalMouseForwarding;
+		/**
+		* Close a shell's tab (and its pane, if it was the only tab) when the
+		* shell exits (`exit`, Ctrl+D) instead of keeping it as read-only
+		* scrollback. Terminals running a command (agents, plugins) are kept.
+		*
+		* Default: `false`
+		*/
+		close_on_exit?: boolean;
 	}
 	/**
 	* When programs in the terminal get mouse events.
@@ -5659,12 +5699,21 @@ interface EditorAPI {
 	*/
 	envActive(): boolean;
 	/**
-	* Whether the editor was launched by a bare `fresh` in Orchestrator mode.
-	* This reflects the launch, not the `orchestrator_mode` preference,
+	* Whether the editor is the daemon a bare `fresh` with Auto Attach on
+	* attaches to. This reflects the launch, not the `auto_attach` preference,
 	* which stays on for `fresh FILE`. Plugins in the mode use it to
 	* override their own settings.
 	*/
 	orchestratorMode(): boolean;
+	/**
+	* Whether the editor was launched to open the files on its command line
+	* (`fresh FILE…`, as `$EDITOR` or git's `core.editor` run it, or
+	* `fresh --simple`) rather than a session (a bare `fresh`, `fresh DIR`, a
+	* daemon). Such a launch is
+	* about those files: plugins leave out what belongs to a session, such
+	* as startup pages.
+	*/
+	fileLaunch(): boolean;
 	/**
 	* Whether the left dock slot is open: a panel is in it, or the host is
 	* holding the column for one its manifest declared. The plugin that
@@ -6069,7 +6118,7 @@ interface EditorAPI {
 	* rewrite) *and* applies the value immediately, so a checkbox a plugin
 	* draws can own a real setting.
 	* 
-	* `path` is dot-separated (e.g. `"orchestrator_mode"`,
+	* `path` is dot-separated (e.g. `"auto_attach"`,
 	* `"editor.tab_size"`). The host refuses a path that is not a real
 	* config setting rather than writing a key that would be silently
 	* dropped on the next load, and says so in the status bar.
@@ -6441,6 +6490,8 @@ interface EditorAPI {
 	* 
 	* Options: fg, bg (RGB array or theme key string), bold, italic, underline,
 	* strikethrough, extendToLineEnd (all booleans, default false).
+	* `composeOnly: true` draws the overlay only in a pane showing the buffer
+	* in compose view, and hides it in every other pane.
 	* 
 	* Overlays persist until removed. Use a namespace (e.g. "spell", "todo") to
 	* remove a group at once with `clearNamespace`. Several overlays can cover the
@@ -6515,8 +6566,13 @@ interface EditorAPI {
 	* cursor-revealable decoration once — instead of rebuilding markers
 	* on every cursor move — is what keeps cursor movement free of
 	* marker churn (and of the cache invalidation it causes).
+	* 
+	* `composeOnly` set to `true` applies the conceal only in a pane showing
+	* the buffer in compose view; every other pane shows the text as is.
+	* Pass `null` for `activation` and the scope to leave the conceal
+	* always active.
 	*/
-	addConceal(bufferId: number, namespace: string, start: number, end: number, replacement: string | null, activation?: string, scopeStart?: number, scopeEnd?: number): boolean;
+	addConceal(bufferId: number, namespace: string, start: number, end: number, replacement: string | null, activation?: string | null, scopeStart?: number | null, scopeEnd?: number | null, composeOnly?: boolean): boolean;
 	/**
 	* Clear all conceal ranges in a namespace
 	*/
@@ -6596,6 +6652,9 @@ interface EditorAPI {
 	/**
 	* Set layout hints (compose width, column guides) for a buffer/split
 	* directly.
+	* 
+	* @param splitId - The pane to set them in; omitted or `null`, the pane
+	* the user is in (inside a buffer group, its focused panel).
 	*/
 	setLayoutHints(bufferId: number, splitId: number | null, hints: LayoutHints): boolean;
 	/**
@@ -6677,6 +6736,9 @@ interface EditorAPI {
 	* the frames between an edit and the `lines_changed` that reports it;
 	* a width you compute here cannot, since your view of the buffer
 	* always trails the one being drawn.
+	* 
+	* `options.composeOnly: true` draws the text only in a pane showing the
+	* buffer in compose view, and hides it in every other pane.
 	*/
 	addVirtualTextStyled(bufferId: number, virtualTextId: string, position: number, text: string, options: Record<string, unknown>, before: boolean): boolean;
 	/**
@@ -6721,6 +6783,8 @@ interface EditorAPI {
 	*     of on the following source line.
 	*   * `gutterColor` — color for `gutterGlyph`, same shape as
 	*     `fg`/`bg`. Falls back to the theme's line-number fg.
+	*   * `composeOnly` — `true` draws the line only in a pane showing the
+	*     buffer in compose view, and hides it in every other pane.
 	* 
 	* @param position - Byte position to anchor the virtual line to
 	* @param above - Whether to insert above (true) or below (false) the line
@@ -7053,6 +7117,16 @@ interface EditorAPI {
 	* at cycle time.
 	*/
 	setWindowCycleOrder(ids: number[]): boolean;
+	/**
+	* Load every saved workspace into `listWindows()`, once.
+	* 
+	* A launch starts with only the workspaces of its own directory (plus,
+	* in Orchestrator mode, the one last used); the rest of the registry is
+	* read on first use rather than at startup. Call this before listing workspaces to a
+	* user. Resolves once `listWindows()` includes them all; resolves at
+	* once when they already are.
+	*/
+	loadWorkspaces(): Promise<void>;
 	/**
 	* Close session `id`. Refuses to close the active session or
 	* the base session (id 1). Logs and no-ops on failure.
@@ -7454,8 +7528,13 @@ interface EditorAPI {
 	* Create a scroll sync group for anchor-based synchronized scrolling
 	* 
 	* Used for side-by-side diff views where two panes need to scroll
-	* together. The plugin provides the group ID, which must be unique per
-	* plugin. Groups are removed automatically when the plugin unloads.
+	* together. Lines follow the anchors; the horizontal scroll is shared
+	* as-is between two panes that both scroll sideways (a pane in compose
+	* view, or with line wrap on, keeps its own).
+	* 
+	* The plugin provides the group ID, which must be unique per plugin. A
+	* group is removed automatically when the plugin unloads, or when
+	* either of its panes closes; its ID can then be used again.
 	* 
 	* @param groupId - Plugin-assigned group ID
 	* @param leftSplit - The left (primary) split; scroll is tracked in its lines
@@ -8111,7 +8190,13 @@ interface EditorAPI {
 	delay(durationMs: number): Promise<void>;
 	/**
 	* Project-wide grep search (async)
-	* Searches all files in the project, respecting .gitignore.
+	* Searches the project's files by Quick Open's rules, with hidden and
+	* gitignored files left out whatever the explorer shows: in a git
+	* repository, what `git ls-files --cached --others --exclude-standard`
+	* reports (so .gitignore is respected) plus the files of submodules and
+	* nested repositories; otherwise every non-hidden file outside `.git`,
+	* `node_modules`, `target` and similar directories. Either way, files
+	* matched by `file_explorer.custom_ignore_patterns` are left out.
 	* Open buffers with dirty edits are searched in-memory.
 	*/
 	grepProject(pattern: string, fixedString: boolean | null, caseSensitive: boolean | null, maxResults: number | null, wholeWords: boolean | null): Promise<GrepMatch[]>;
@@ -8119,7 +8204,7 @@ interface EditorAPI {
 	* Begin a streaming project-wide search and return a `SearchHandle`.
 	* The producer (host) writes matches at full speed into shared state;
 	* the consumer drains via `handle.take()` at its own cadence. Call
-	* `handle.cancel()` to abort.
+	* `handle.cancel()` to abort. Searches the same files as `grepProject`.
 	*/
 	beginSearch(pattern: string, opts?: {
 		fixedString?: boolean;
@@ -8494,6 +8579,15 @@ interface HookEventMap {
 		buffer_id: number;
 		window_id: number;
 	};
+	/**
+	* A buffer group closed: its plugin closed it, the user closed its tab,
+	* or a buffer one of its panels named by `bufferId` was closed. Group
+	* ids are per window, so match on `window_id` as well as `group_id`.
+	*/
+	buffer_group_closed: {
+		group_id: number;
+		window_id: number;
+	};
 	// ── file I/O ─────────────────────────────────────────────────────────────
 	before_file_open: {
 		path: string;
@@ -8797,6 +8891,19 @@ interface HookEventMap {
 		missing_servers: string[];
 		user_dismissed: boolean;
 	};
+	/**
+	* An LSP navigation resolved to a URI whose scheme this plugin claimed
+	* with `registerLspUriScheme`. `line` and `character` are 0-indexed, as
+	* the server sent them.
+	*/
+	lsp_open_external_uri: {
+		uri: string;
+		scheme: string;
+		line: number;
+		character: number;
+		language: string;
+		server_name: string;
+	};
 	// ── UI events ────────────────────────────────────────────────────────────
 	/** The user chose an action in a popup opened with `editor.showActionPopup`. */
 	action_popup_result: {
@@ -8843,6 +8950,12 @@ interface HookEventMap {
 		terminal_id: number;
 		window_id: number;
 		last_line: string;
+		/** The terminal's tab title; empty until it has a meaningful one. */
+		terminal_title: string;
+		/** The last OSC 133 / OSC 9;4 activity marker: `true` while a command
+		*  runs, `false` once it has finished, `null` if the program never
+		*  emitted one. */
+		osc_activity: boolean | null;
 	};
 	/** A terminal's process exited. `exit_code` is `null` when a signal ended it. */
 	terminal_exit: {
@@ -8965,6 +9078,21 @@ interface EditorAPI {
 	off<K extends keyof HookEventMap>(eventName: K, handlerName: string): void;
 	/**
 	* Create a buffer group: multiple panels appearing as one tab.
+	*
+	* `layout` is a JSON string. A leaf is `{type: "scrollable", id}` or
+	* `{type: "fixed", id, height}`; `{type: "split", direction: "h" | "v",
+	* ratio, first, second}` arranges two of them, `"h"` side by side.
+	*
+	* A leaf gets a new read-only panel buffer, which the group owns and
+	* closes with itself. A leaf with `bufferId` shows that existing buffer
+	* instead (a file the user has open, say), and it stays an ordinary
+	* buffer: editable, in its tabs, and left open when the group closes.
+	* Each panel has its own view of it, so two panels can show one file in
+	* different view modes. Closing the buffer closes the group.
+	*
+	* The result names each panel's buffer (`panels`) and split
+	* (`panelSplits`, for `createScrollSyncGroup`, `setLineWrap` and
+	* `setLayoutHints`). Group ids are per window.
 	*/
 	createBufferGroup(name: string, mode: string, layout: unknown): Promise<BufferGroupResult>;
 }

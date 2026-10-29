@@ -173,10 +173,16 @@ export interface SearchOpts {
 	*  `maxResults`. */
 	maxResults: number;
 	/** When true, the "Ignored & hidden" scope is on: providers should
-	*  also search `.gitignore`d / hidden files. Built-in `rg` and
-	*  `git-grep` honour this; other built-ins (ag/ack/grep) currently
-	*  ignore it and always search their default set. */
+	*  also search `.gitignore`d / hidden files. Built-in `rg`, `git-grep`
+	*  and `ag` honour this, and `grep` drops its stand-in excludes; `ack`
+	*  ignores it and always searches its default set. */
 	includeIgnored?: boolean;
+	/** `file_explorer.custom_ignore_patterns`: `.gitignore` lines, relative
+	*  to `cwd`, naming what to leave out — the same list the file explorer
+	*  and Quick Open honour. Empty when `includeIgnored` is on, since that
+	*  scope searches everything but `.git`. Built-ins pass them as their
+	*  closest exclude flags (see `lib/grep_args.ts`). */
+	ignorePatterns?: string[];
 	/** When true, match whole words only (rg `-w`, git-grep/grep `-w`).
 	*  Providers should add the appropriate flag. */
 	wholeWord?: boolean;

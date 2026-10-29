@@ -152,7 +152,8 @@ on-window-detected = [
         test %{app-bundle-id} = com.mitchellh.ghostty \
         || test %{app-bundle-id} = dev.warp.Warp-Stable \
         || test %{app-bundle-id} = com.raphaelamorim.canario \
-        || test %{app-bundle-id} = be.zenjoy.zentty
+        || test %{app-bundle-id} = be.zenjoy.zentty \
+        || test %{app-bundle-id} = com.superlogical.rex
         ''',
         run = ['move-node-to-workspace T'],
     },
@@ -170,6 +171,10 @@ on-window-detected = [
     {
         if = 'test %{app-bundle-id} = com.dashlane.dashlanephonefinal',
         run = ['layout floating', 'move-node-to-workspace Z'],
+    },
+    {
+        if = 'test %{app-bundle-id} = com.apple.LocalAuthentication.UIAgent',
+        run = ['layout floating'],
     },
     {
         # Default rule for all other apps
