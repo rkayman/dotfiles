@@ -67,10 +67,6 @@ brew "glib"
 brew "carl"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.14"
-# Browse, inspect, and launch movie torrents directly from your terminal
-brew "cinecli"
 # Copy files from your terminal that actually paste into GUI apps
 brew "clippy"
 # ACP server that exposes Codex CLI functionality for ACP-compatible clients
@@ -81,6 +77,8 @@ brew "colima"
 brew "container"
 # NaCl networking and cryptography library
 brew "libsodium"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
 # Terminal-based dashboard for managing cron jobs locally and on servers
 brew "cronboard"
 # Implementation of the Unicode BiDi algorithm
@@ -301,8 +299,6 @@ cask "apparency"
 cask "azure-cli"
 # Per-app volume, EQ and audio device control
 cask "betteraudio"
-# Terminal emulator
-cask "canario"
 # Native GUI for Homebrew casks
 cask "caskhub"
 # OpenAI's official ChatGPT desktop app
@@ -351,7 +347,7 @@ cask "git-credential-manager"
 cask "github"
 # CLI for GitKraken
 cask "gitkraken-cli"
-# TUI Client for NATS
+# Keyboard-driven terminal client for managing and monitoring NATS JetStream
 cask "galaxy-io/tap/gnat", trusted: true
 # Client for the Google Drive storage service
 cask "google-drive"
@@ -363,6 +359,8 @@ cask "handbrake-app"
 cask "hex-fiend"
 # Homebrew's official GUI
 cask "homebrew-app"
+# Keyboard shortcut conflict detector
+cask "hotkeyclash"
 # Free and open-source media player
 cask "iina"
 # Keyboard and mouse input visualizer
@@ -407,6 +405,8 @@ cask "shottr"
 cask "smoothcsv"
 # OpenSpec document management desktop app
 cask "spectra-app"
+# Menu bar and Dock monitor for Wi-Fi, battery, and volume
+cask "status-trio"
 # Replacement for RCDefaultApps, written in Swift
 cask "swiftdefaultappsprefpane"
 # Xcode Extension for reformatting Swift code
