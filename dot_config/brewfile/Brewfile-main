@@ -303,8 +303,6 @@ cask "betteraudio"
 cask "caskhub"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
-# OpenAI's previous ChatGPT desktop app
-cask "chatgpt-classic"
 # Image, video and clipboard optimiser
 cask "clop"
 # OpenAI's coding agent that runs in your terminal

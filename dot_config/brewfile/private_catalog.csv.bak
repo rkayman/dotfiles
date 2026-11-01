@@ -31,7 +31,7 @@ brew,bulletty,misc,retire,Pretty feed reader (ATOM/RSS) that stores articles in 
 brew,c-ares,lib,ignore,Asynchronous DNS library,,aria2 azurite codex-acp htmlhint node pake pyright shortest taskline
 brew,caddy,dev,keep,"Powerful, enterprise-ready, open source web server with automatic HTTPS",,
 brew,carl,base,keep,Calendar for the command-line,,
-brew,certifi,lib,ignore,Mozilla CA bundle for Python,,b2-tools cinecli cve-bin-tool httptap skillspector snyk-agent-scan subliminal torrra wik
+brew,certifi,lib,ignore,Mozilla CA bundle for Python,,b2-tools cve-bin-tool httptap skillspector snyk-agent-scan subliminal torrra wik
 brew,chezmoi,base,keep,"Manage your dotfiles across multiple diverse machines, securely",,
 brew,cinecli,media,retire,"Browse, inspect, and launch movie torrents directly from your terminal (failing, abandoned, use local copy)",,
 brew,clippy,misc,keep,Copy files from your terminal that actually paste into GUI apps,,
@@ -70,7 +70,7 @@ brew,groff,lib,ignore,GNU troff text-formatting system,,man-db
 brew,headson,misc,keep,Head/tail for structured data,,
 brew,helix,base,keep,Post-modern modal text editor,,
 brew,herdr,base,keep,Agent multiplexer that lives in your terminal,,
-brew,highway,lib,ignore,"Performance-portable, length-agnostic SIMD with runtime dispatch",,azurite codex-acp ffmpeg-full htmlhint node pake pyright shortest taskline
+brew,highway,lib,ignore,"Performance-portable, length-agnostic SIMD with runtime dispatch",,codex-acp ffmpeg-full node pake
 brew,htmlhint,dev,keep,Static code analysis tool you need for your HTML,,
 brew,htop,base,keep,Improved top (interactive process viewer),,
 brew,httptap,base,keep,HTTP request visualizer with phase-by-phase timing breakdown,,
@@ -164,7 +164,7 @@ cask,betteraudio,media,keep,"Per-app volume, EQ and audio device control",,
 cask,canario,dev,retire,Terminal emulator (replaced by Superlogical's Rex),,
 cask,caskhub,misc,keep,Native GUI for Homebrew casks,,
 cask,chatgpt,ai,keep,OpenAI's official ChatGPT desktop app,,
-cask,chatgpt-classic,ai,keep,OpenAI's previous ChatGPT desktop app,,
+cask,chatgpt-classic,ai,retire,OpenAI's previous ChatGPT desktop app (sunset Jan '27),,
 cask,clop,media,keep,"Image, video and clipboard optimiser",,
 cask,codex,ai,keep,OpenAI's coding agent that runs in your terminal,,
 cask,crisp,base,keep,"Menu bar display manager: DDC brightness, HiDPI, presets, virtual displays",,

@@ -119,7 +119,8 @@ on-window-detected = [
     {
         if = '''
         test %{app-bundle-id} = com.todesktop.2601167vjw8xe \
-        || test %{app-bundle-id} = com.chocoford.excalidraw
+        || test %{app-bundle-id} = com.chocoford.excalidraw \
+        || test %{app-bundle-id} = com.tikz.editor
         ''',
         run = ['layout accordion', 'move-node-to-workspace G'],
     },
@@ -132,6 +133,7 @@ on-window-detected = [
         test %{app-bundle-id} = dev.zed.Zed \
         || test %{app-bundle-id} = com.jetbrains.rider \
         || test %{app-bundle-id} = com.apple.dt.Xcode \
+        || test %{app-bundle-id} = com.microsoft.VSCode \
         || test %{app-bundle-id} = com.axosoft.gitkraken \
         || test %{app-bundle-id} = net.zametek.projectplan
         ''',
@@ -151,7 +153,6 @@ on-window-detected = [
         if = '''
         test %{app-bundle-id} = com.mitchellh.ghostty \
         || test %{app-bundle-id} = dev.warp.Warp-Stable \
-        || test %{app-bundle-id} = com.raphaelamorim.canario \
         || test %{app-bundle-id} = be.zenjoy.zentty \
         || test %{app-bundle-id} = com.superlogical.rex
         ''',
