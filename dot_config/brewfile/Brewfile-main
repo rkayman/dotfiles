@@ -354,8 +354,6 @@ cask "google-drive"
 cask "greensignal"
 # Open-source video transcoder
 cask "handbrake-app"
-# Desktop app for terminals and coding agents
-cask "herdr-app"
 # Hex editor focussing on speed
 cask "hex-fiend"
 # Homebrew's official GUI
