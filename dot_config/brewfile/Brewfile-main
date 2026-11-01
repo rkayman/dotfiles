@@ -3,6 +3,7 @@ tap "dashlane/tap", trusted: true
 tap "dmmulroy/tap"
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 tap "finestructure/tap", trusted: true
+tap "flewgg/tap"
 tap "galaxy-io/tap", trusted: true
 tap "lab421/tap", trusted: true
 tap "nats-io/nats-tools", trusted: true
@@ -353,6 +354,8 @@ cask "google-drive"
 cask "greensignal"
 # Open-source video transcoder
 cask "handbrake-app"
+# Desktop app for terminals and coding agents
+cask "herdr-app"
 # Hex editor focussing on speed
 cask "hex-fiend"
 # Homebrew's official GUI
@@ -425,6 +428,8 @@ cask "tla+-toolbox"
 cask "transmission"
 # Speech-to-text and AI text processing
 cask "typewhisper/tap/typewhisper"
+# A utility app to quickview folders, archives, code, and more.
+cask "flewgg/tap/unfold", trusted: true
 # Menu bar toolkit with keep-awake, system monitor and volume mixer
 cask "vorssaint"
 # Native desktop client for WhatsApp

@@ -10,6 +10,7 @@
     "typewhisper/tap"
   ],
   "trustedcasks": [
+    "flewgg/tap/unfold",
     "galaxy-io/tap/gnat",
     "nikitabobko/tap/aerospace"
   ],
