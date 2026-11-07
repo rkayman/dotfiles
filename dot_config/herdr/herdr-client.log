@@ -6,3 +6,7 @@
 2026-08-03T12:28:53.315624Z  INFO herdr::client: connecting to server path=/Users/rob/.config/herdr/herdr-client.sock
 2026-08-03T12:28:53.559326Z  INFO herdr::client: handshake succeeded version=17 encoding=SemanticFrame
 2026-08-03T12:29:12.193534Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=23992
+2026-11-02T00:26:24.637639Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=68262
+2026-11-02T00:26:24.638061Z  INFO herdr::client: connecting to server path=/Users/rob/.config/herdr/herdr-client.sock
+2026-11-02T00:26:24.849233Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.5
+2026-11-02T00:33:57.861753Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=68262

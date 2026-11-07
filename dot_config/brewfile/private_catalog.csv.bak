@@ -71,7 +71,7 @@ brew,groff,lib,ignore,GNU troff text-formatting system,,man-db
 brew,headson,misc,keep,Head/tail for structured data,,
 brew,helix,base,keep,Post-modern modal text editor,,
 brew,herdr,base,keep,Agent multiplexer that lives in your terminal,,
-brew,highway,lib,ignore,"Performance-portable, length-agnostic SIMD with runtime dispatch",,azurite codex-acp ffmpeg-full htmlhint node pake pyright shortest taskline
+brew,highway,lib,ignore,"Performance-portable, length-agnostic SIMD with runtime dispatch",,codex-acp ffmpeg-full node pake
 brew,htmlhint,dev,keep,Static code analysis tool you need for your HTML,,
 brew,htop,base,keep,Improved top (interactive process viewer),,
 brew,httptap,base,keep,HTTP request visualizer with phase-by-phase timing breakdown,,
