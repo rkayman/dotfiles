@@ -420,6 +420,8 @@ cask "terminal-browser"
 cask "textream"
 # WYSIWYG editor for TikZ diagrams in LaTeX
 cask "tikz-editor"
+# Application launcher and productivity tool
+cask "tinycast"
 # IDE for TLA+
 cask "tla+-toolbox"
 # Open-source BitTorrent client
