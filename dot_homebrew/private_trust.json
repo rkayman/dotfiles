@@ -12,7 +12,9 @@
   "trustedcasks": [
     "flewgg/tap/unfold",
     "galaxy-io/tap/gnat",
-    "nikitabobko/tap/aerospace"
+    "nikitabobko/tap/aerospace",
+    "olaproeis/ferrite/ferrite",
+    "raine/aven/aven"
   ],
   "trustedformulae": [
     "dmmulroy/tap/jj-starship",
