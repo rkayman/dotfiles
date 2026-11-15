@@ -233,10 +233,14 @@ on-window-detected = [
     # add binding to make window fullscreen
     alt-shift-enter = 'fullscreen'
 
-    alt-shift-left = 'join-with left'
-    alt-shift-right = 'join-with right'
-    alt-shift-down = 'join-with down'
-    alt-shift-up = 'join-with up'
+#    alt-shift-left = 'join-with left'
+#    alt-shift-right = 'join-with right'
+#    alt-shift-down = 'join-with down'
+#    alt-shift-up = 'join-with up'
+    alt-ctrl-left = 'join-with left'
+    alt-ctrl-right = 'join-with right'
+    alt-ctrl-down = 'join-with down'
+    alt-ctrl-up = 'join-with up'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
     alt-shift-minus = 'resize smart -50'
