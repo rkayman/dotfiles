@@ -12,6 +12,7 @@
   "trustedcasks": [
     "flewgg/tap/unfold",
     "galaxy-io/tap/gnat",
+    "https://github.com/boringbar/chest/chest",
     "nikitabobko/tap/aerospace",
     "olaproeis/ferrite/ferrite",
     "raine/aven/aven"

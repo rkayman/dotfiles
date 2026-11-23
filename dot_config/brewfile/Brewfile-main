@@ -1,9 +1,10 @@
 tap "blacktop/tap", trusted: true
+tap "boringbar/chest", "https://github.com/boringbar/chest"
 tap "dashlane/tap", trusted: true
 tap "dmmulroy/tap"
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 tap "finestructure/tap", trusted: true
-tap "flewgg/tap"
+tap "flewgg/tap", trusted: { casks: ["unfold"] }
 tap "galaxy-io/tap", trusted: true
 tap "lab421/tap", trusted: true
 tap "nats-io/nats-tools", trusted: true
@@ -306,6 +307,8 @@ cask "betteraudio"
 cask "caskhub"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
+# Hide menu bar items away into a separate space
+cask "boringbar/chest/chest"
 # Image, video and clipboard optimiser
 cask "clop"
 # OpenAI's coding agent that runs in your terminal
@@ -362,6 +365,8 @@ cask "hex-fiend"
 cask "homebrew-app"
 # Keyboard shortcut conflict detector
 cask "hotkeyclash"
+# Tiling window manager
+cask "hyprmac"
 # Free and open-source media player
 cask "iina"
 # Keyboard customiser
@@ -402,6 +407,10 @@ cask "proxyman"
 cask "puremac"
 # Disk space analyzer
 cask "radix"
+# Snapshot and diff system settings changes
+cask "setshot"
+# SSH and SFTP client
+cask "shellrs"
 # Screenshot measurement and annotation tool
 cask "shottr"
 # CSV editor
@@ -432,8 +441,6 @@ cask "tla+-toolbox"
 cask "transmission"
 # Speech-to-text and AI text processing
 cask "typewhisper/tap/typewhisper"
-# A utility app to quickview folders, archives, code, and more.
-cask "flewgg/tap/unfold", trusted: true
 # Menu bar toolkit with keep-awake, system monitor and volume mixer
 cask "vorssaint"
 # Native desktop client for WhatsApp
@@ -476,7 +483,7 @@ mas "Keynote", id: 361285480
 mas "Kindle", id: 302584613
 mas "Leaf", id: 576338668
 mas "Litterbox", id: 6805719216
-mas "MacPackerStore", id: 6473273874
+mas "MacPacker", id: 6473273874
 mas "Magnet", id: 441258766
 mas "Markgram", id: 6754908716
 mas "Microsoft OneNote", id: 784801555
@@ -504,6 +511,7 @@ mas "StopTheMadness Pro", id: 6471380298
 mas "Swift Playground", id: 1496833156
 mas "TestFlight", id: 899247664
 mas "Transporter", id: 1450874784
+mas "Unfold", id: 6760872758
 mas "Vinegar", id: 1591303229
 mas "VOX", id: 461369673
 mas "Windows App", id: 1295203466
